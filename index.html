@@ -260,6 +260,8 @@ nav#tabs .in2{display:grid;grid-template-columns:1fr 1fr 92px 1fr 1fr;align-item
 .sheet h3{font:400 2.5rem/1.1 var(--script);color:var(--title);margin:0;text-shadow:var(--titleglow)}
 #toast{position:fixed;left:50%;transform:translate(-50%,20px);bottom:calc(150px + env(safe-area-inset-bottom,0px));z-index:60;background:var(--surface);color:var(--wine);padding:13px 26px;border-radius:999px;border:1px solid var(--edge);font:italic 600 1.2rem var(--display);opacity:0;pointer-events:none;transition:all .4s;max-width:88vw;text-align:center;box-shadow:0 14px 30px rgba(0,0,0,.45)}
 #toast.on{opacity:1;transform:translate(-50%,0)}
+#toast.act{pointer-events:auto}
+.tundo{font:italic 700 1.1rem var(--display);color:var(--wine);margin-left:10px;padding:6px 14px;min-height:40px;border:1px solid var(--edge);border-radius:999px;background:var(--btn1);text-decoration:underline}
 #loading{position:fixed;inset:0;z-index:80;background-color:var(--bg);background-image:radial-gradient(600px 420px at 50% 20%,var(--glow1),transparent 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:30px;transition:opacity .8s}
 #loading.off{opacity:0;pointer-events:none}
 #loading #loading p{font:italic 500 1.5rem var(--display);color:var(--title);margin:0}
@@ -426,6 +428,40 @@ html{overflow-x:clip}body{overflow-x:clip;position:relative}
 .meter.good i{background:linear-gradient(90deg,#B9D9B4,#8FBF98)}
 .whisper{margin:10px 0;padding:10px 14px;border-radius:18px;background:linear-gradient(135deg,rgba(255,240,244,.85),rgba(250,244,255,.85));border:1px solid rgba(201,168,94,.45);box-shadow:0 6px 18px rgba(155,74,103,.08)}
 .whisper .wrow{display:flex;align-items:center;gap:10px;padding:4px 0}.whisper p{margin:0;font-style:italic;font-size:1rem;line-height:1.3}.whisper b{font-style:normal;color:var(--wine)}
+
+.yr{display:block;width:100%;text-align:left;margin:0 0 9px;padding:11px 14px;border-radius:20px;background:var(--surface);border:1px solid var(--edge2);box-shadow:var(--shadow)}
+.yr.tight{border-color:rgba(168,56,90,.4)}
+.yh{display:flex;align-items:center;justify-content:space-between;gap:8px}.yh b{font:italic 600 1.25rem var(--display);color:var(--title)}
+.ytag{font:italic 600 .88rem var(--display);padding:2px 10px;border-radius:999px;border:1px solid var(--edge2)}
+.ytag.tight{color:var(--neg);background:rgba(168,56,90,.1)}.ytag.close{color:var(--apri);background:var(--apriwash)}.ytag.ease{color:var(--pos);background:rgba(68,128,96,.1)}
+.ycols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}.ycols i{display:block;font-size:.85rem;color:var(--ink2)}
+.yb{display:block;height:8px;border-radius:99px;background:var(--line);margin:3px 0 2px;overflow:hidden}.yb u{display:block;height:100%;border-radius:99px;text-decoration:none}
+.yb.arr u{background:linear-gradient(90deg,#B9D9B4,#8FBF98)}.yb.dep u{background:linear-gradient(90deg,#F0B6C6,#D0708C)}
+.ycols .num{font-size:1.1rem}.ysp{margin-top:6px;font-style:italic;color:var(--ink2);font-size:.95rem}.ysp .num{font-style:normal;font-size:1.05rem}.ysp .neg{color:var(--neg)}
+.wlink{display:flex;width:100%;text-align:left;border-top:1px dashed var(--edge2);margin-top:4px;padding-top:8px}
+.wlink .wgo{display:flex;gap:10px;align-items:center;flex:1;text-align:left;min-height:44px}
+.wsnooze{flex:none;align-self:center;font:italic 600 .95rem var(--display);color:var(--ink2);padding:8px 12px;min-height:40px;border-radius:999px;border:1px solid var(--edge2);margin-left:6px}
+.lg-link{width:100%;text-align:left;cursor:pointer;min-height:46px;transition:background .25s}
+.lg-link:active{background:rgba(208,112,140,.08)}
+.lg-link .chev{color:var(--gold);font-size:1.4rem;line-height:1;margin-left:2px}
+.bkseal{display:flex;align-items:center;gap:14px}.bkseal svg{width:68px;height:68px;flex:none;transition:opacity .6s}
+.bkseal b{display:block;font:italic 600 1.3rem var(--display);color:var(--title)}.bkseal span{display:block;color:var(--ink2);font-size:1rem;line-height:1.3}
+.bsec .bk{margin:0}.bookgrp{margin-top:14px}
+svg.trail{width:100%;height:auto;display:block;overflow:visible}
+#printarea{display:none}
+
+@media print{
+  @page{margin:14mm}
+  :root,:root[data-theme="dark"]{--ink:#2b2028;--ink2:#6a5a65;--line:#cfc3c8;--edge:#bfa57a;--title:#7a3350;--pos:#2f6b4a;--neg:#a8385a;--surface:#fff;--bg:#fff}
+  html,body{background:#fff!important;color:#2b2028!important}
+  body::before,body::after,html::before,html::after{display:none!important;content:none!important}
+  body>*:not(#printarea){display:none!important}
+  #printarea{display:block!important;position:static!important}
+  .rp-t tr{break-inside:avoid}.rp h4{break-after:avoid}
+}
+.fcap .eye{display:inline-grid;place-items:center;vertical-align:middle;width:44px;height:44px;margin-left:2px;color:var(--wine);border-radius:50%;transition:transform .3s,background .3s}
+.fcap .eye svg{width:24px;height:24px}.fcap .eye:active{transform:scale(.88);background:rgba(208,112,140,.12)}
+.fortune .total.hid{letter-spacing:.14em}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -556,9 +592,10 @@ function corner(){
    +dots+'</svg>';
 }
 
-function macTower(){
+function macTower(keep){
+  if(keep===undefined)keep=10;var mi=0,topx=75,topy=64;
   var P=[['#F7C3D2','#EFA6BC'],['#D5C6EE','#BDA8E0'],['#C7DEC0','#A9CBA2'],['#FAD5BB','#F3B995'],['#C4D6F3','#A6BFE8'],['#F8E8B4','#EDD48C']],n=0;
-  function mac(cx,cy){var c=P[n++%P.length];
+  function mac(cx,cy){var c=P[n++%P.length];if(mi++>=keep)return '';topx=cx;topy=cy;
     return '<path d="M'+(cx-20)+' '+(cy-2)+'C'+(cx-20)+' '+(cy-15)+' '+(cx+20)+' '+(cy-15)+' '+(cx+20)+' '+(cy-2)+'Z" fill="'+c[0]+'"/>'
      +'<path d="M'+(cx-14)+' '+(cy-8)+'C'+(cx-8)+' '+(cy-12)+' '+(cx+2)+' '+(cy-12.5)+' '+(cx+8)+' '+(cy-11)+'" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="1.6" stroke-linecap="round"/>'
      +'<rect x="'+(cx-19)+'" y="'+(cy-3)+'" width="38" height="5.4" rx="2.7" fill="#FFF8EC" stroke="'+c[1]+'" stroke-opacity=".5" stroke-width=".7"/>'
@@ -567,7 +604,7 @@ function macTower(){
   var s='<svg class="mac" viewBox="0 0 150 196" aria-hidden="true"><ellipse cx="75" cy="188" rx="58" ry="6" fill="#E3C98A"/><ellipse cx="75" cy="186" rx="58" ry="5.5" fill="#F3E0AD"/><path d="M69 154h12l3 32H66z" fill="#E9D197"/><path d="M69 154h12" stroke="#C9A85E" stroke-width="1.5"/><ellipse cx="75" cy="156" rx="62" ry="7" fill="#EBD59C"/><ellipse cx="75" cy="154" rx="62" ry="6.5" fill="#FBF0CF" stroke="#D2B472" stroke-width="1"/>';
   var rows=[[[18,142],[56,142],[94,142],[132,142]],[[37,116],[75,116],[113,116]],[[56,90],[94,90]],[[75,64]]],i,j;
   for(i=0;i<rows.length;i++)for(j=0;j<rows[i].length;j++)s+=mac(rows[i][j][0],rows[i][j][1]);
-  s+='<use href="#leaf" x="46" y="34" width="26" height="13" transform="rotate(-25 59 40)"/><use href="#leaf" x="78" y="34" width="26" height="13" transform="rotate(25 91 40)"/><use href="#rose" x="58" y="14" width="34" height="34"/>';
+  if(keep<=0){topx=75;topy=148;}s+='<g transform="translate('+(topx-75)+' '+(topy-64)+')"><use href="#leaf" x="46" y="34" width="26" height="13" transform="rotate(-25 59 40)"/><use href="#leaf" x="78" y="34" width="26" height="13" transform="rotate(25 91 40)"/><use href="#rose" x="58" y="14" width="34" height="34"/></g>';
   var st=[[22,70],[130,96],[124,28],[16,120]],q;for(q=0;q<st.length;q++)s+='<path d="M'+st[q][0]+' '+(st[q][1]-6)+'q1 5 6 6-5 1-6 6-1-5-6-6 5-1 6-6z" fill="#E8C777"/>';
   return s+'</svg>';
 }
@@ -745,9 +782,13 @@ function emptyHTML(msg,btn,ttl,sub){return gownCard(ttl,sub,msg,btn);}
 function page(inner,cls){return '<section class="page '+(cls||'')+'">'+inner+'</section>';}
 
 /* views */
+function hideF(){try{return localStorage.getItem('gp_hide')==='1';}catch(x){return false;}}
+function eyeBtn(hid){return '<button class="eye" data-act="toggleFortune" aria-label="'+(hid?'Show the fortune':'Hide the fortune')+'" aria-pressed="'+(hid?'true':'false')+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">'+(hid?'<path d="M2.5 12s3.6-6.5 9.5-6.5S21.5 12 21.5 12 17.9 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/><path d="M4 4l16 16"/>':'<path d="M2.5 12s3.6-6.5 9.5-6.5S21.5 12 21.5 12 17.9 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>')+'</svg></button>';}
+function towerState(mk){var ms=monthStats(mk),av=Math.max(0,ms.start)+ms.inc,fr=av>0?Math.max(0,1-ms.exp/av):(ms.exp>0?0:1);var keep=fr>=1?10:(fr<=0?0:Math.max(1,Math.round(fr*10)));return {keep:keep,pc:Math.round(fr*100),av:av,sp:ms.exp};}
 function vHome(){
   var t=today(),mk=t.slice(0,7),sm=summary(mk),total=0,pos=0;
   PURSES.forEach(function(p){total+=sm.b[p.id];if(sm.b[p.id]>0)pos+=sm.b[p.id];});
+  var tw=towerState(mk),hid=hideF();
   var all=allEntries();
   var recs=all.filter(function(e){return e.type==='receivable'&&e.status==='open';}),pays=all.filter(function(e){return e.type==='payable'&&e.status==='open';});
   var rs=recs.reduce(function(a,e){return a+e.amount;},0),ps=pays.reduce(function(a,e){return a+e.amount;},0);
@@ -756,7 +797,7 @@ function vHome(){
   var carry=PURSES.reduce(function(s2,p){return s2+(sm.op[p.id]||0);},0);
   var fl2=PURSES.map(function(p){var v=sm.b[p.id];return {p:p,v:v,pc:pos>0&&v>0?Math.round(v/pos*100):0};});
   var crn='<svg class="fc" viewBox="0 0 30 30" aria-hidden="true"><path d="M2 28C2 12 12 2 28 2" fill="none" stroke="#C9A85E" stroke-width="1.2"/><path d="M2 20C2 10 10 2 20 2" fill="none" stroke="#C9A85E" stroke-width=".8" stroke-opacity=".7"/><circle cx="6" cy="6" r="1.8" fill="#C9A85E"/><path d="M11 6.2h.01M6.2 11h.01" stroke="#C9A85E" stroke-width="2" stroke-linecap="round"/></svg>';
-  h+='<section class="page fortune"><i class="c1">'+crn+'</i><i class="c2">'+crn+'</i><i class="c3">'+crn+'</i><i class="c4">'+crn+'</i><div class="fglow"></div>'+macTower()+'<div class="fcap">Fortune in hand</div><div class="fdiv" aria-hidden="true"><i></i><svg viewBox="0 0 24 24"><use href="#bloom"/></svg><i></i></div><div class="num total'+(total<0?' neg':'')+'">'+money(total)+'</div><div class="pg-sub">across four purses, as of '+shortDate(t)+'</div>'+(carry?'<div class="pg-sub carry">'+money(carry)+' carried in from '+monthName(prevKey(mk)).split(' ')[0]+'</div>':'');
+  h+='<section class="page fortune"><i class="c1">'+crn+'</i><i class="c2">'+crn+'</i><i class="c3">'+crn+'</i><i class="c4">'+crn+'</i><div class="fglow"></div>'+macTower(tw.keep)+'<div class="fcap">Fortune in hand'+eyeBtn(hid)+'</div><div class="fdiv" aria-hidden="true"><i></i><svg viewBox="0 0 24 24"><use href="#bloom"/></svg><i></i></div><div class="num total'+(total<0?' neg':'')+(hid?' hid':'')+'">'+(hid?'<span class="cur">&#8369;</span>&bull;&bull;&bull;&bull;&bull;&bull;':money(total))+'</div><div class="pg-sub">across four purses, as of '+shortDate(t)+'</div>'+(carry&&!hid?'<div class="pg-sub carry">'+money(carry)+' carried in from '+monthName(prevKey(mk)).split(' ')[0]+'</div>':'')+'<div class="pg-sub carry">'+(tw.sp<=0?'The tower stands whole this month.':tw.keep===0?'The tower is bare. This month’s coin has all been spent.':tw.pc+'% of this month’s coin remains.')+'</div>';
   h+='<div class="ribbon" aria-hidden="true">'+PURSES.map(function(p){var v=sm.b[p.id];return v>0&&pos>0?'<i style="background:'+p.color+';width:'+(v/pos*100)+'%"></i>':'';}).join('')+'</div>';
   h+='<div class="fleg">'+fl2.map(function(x){return '<span>'+med(x.p.mono,x.p.color,'xs')+'<b>'+x.pc+'%</b></span>';}).join('')+'</div></section>';
   h+='<section class="page"><div class="cap" style="margin:0">The account of the purses <span style="letter-spacing:.08em;text-transform:none;font-style:italic">· '+monthName(mk)+'</span></div>';
@@ -774,7 +815,12 @@ function vHome(){
     h+='<section class="page duties"><div class="dtitle">'+cnt+(du.length===1?' partner awaits':' partners await')+' you this week</div><div class="cap" style="margin:0 0 4px">The dance card of duties</div>'+du.map(function(x){var col=x.k==='receivable'?'var(--lav)':x.k==='payable'?'var(--apri)':x.k==='card'?'var(--blue)':'var(--gold)';var dd=daysBetween(t,x.due);var when=dd<0?'overdue by '+(-dd)+(dd===-1?' day':' days'):(dd===0?'today':(dd===1?'tomorrow':'in '+dd+' days'));return '<div class="mini" style="color:'+col+'"><i class="dt"></i><div class="t">'+esc(x.n)+'<small>'+x.s+' · '+when+'</small></div><span class="num">'+money(x.a)+'</span></div>';}).join('')+'</section>';}
   var wmk=today().slice(0,7),wby=monthStats(wmk).by,wl=[];CATS.forEach(function(k){var al=allowFor(k[0],wmk),sp=wby[k[0]]||0;if(al>0&&sp/al>=.85)wl.push({n:k[0],sp:sp,al:al,r:sp/al,ci:catInfo(k[0])});});
   wl.sort(function(a,b){return b.r-a.r;});
-  if(wl.length)h+='<section class="whisper">'+wl.slice(0,2).map(function(x){return '<div class="wrow">'+med(x.ci.mono,x.ci.color,'sm')+'<p>'+(x.sp>x.al?'<b>'+esc(x.n)+'</b> has stepped '+money(x.sp-x.al)+' beyond its allowance this month.':'<b>'+esc(x.n)+'</b> has nearly reached its allowance, with '+money(x.al-x.sp)+' left to spend.')+'</p></div>';}).join('')+'</section>';
+  var tightM=null,pit=(S.config.plan&&S.config.plan.items)||[];for(var q=0;q<4&&!tightM;q++){var tk=addMonths(wmk+'-01',q,1).slice(0,7),ti=0,to=0,tn=0;pit.forEach(function(x){if(x.mk===tk){tn++;if(x.dir==='in')ti+=+x.amount||0;else to+=+x.amount||0;}});if(tn&&to>ti)tightM={mk:tk,d:to-ti};}
+  var wrows=wl.slice(0,2).map(function(x){return '<div class="wrow">'+med(x.ci.mono,x.ci.color,'sm')+'<p>'+(x.sp>x.al?'<b>'+esc(x.n)+'</b> has stepped '+money(x.sp-x.al)+' beyond its allowance this month.':'<b>'+esc(x.n)+'</b> has nearly reached its allowance, with '+money(x.al-x.sp)+' left to spend.')+'</p></div>';});
+  if(tightM)wrows.push('<button class="wrow wlink" data-act="go" data-v="year">'+med('e-scales','#9B4A67','sm')+'<p><b>'+monthName(tightM.mk)+'</b> '+(tightM.mk===wmk?'is a tight month':'looks to be a tight month')+', asking '+money(tightM.d)+' more than is expected. Touch to see the year ahead.</p></button>');
+  if(carryList().length)wrows.push('<button class="wrow wlink" data-act="go" data-v="plan">'+med('e-quill','#9B4A67','sm')+'<p>'+carryList().length+' planned '+(carryList().length===1?'entry':'entries')+' from '+monthName(prevKey(wmk))+' still wait. Touch to carry '+(carryList().length===1?'it':'them')+' into the new month.</p></button>');
+  if(bkDue())wrows.push('<div class="wrow wlink"><button class="wgo" data-act="go" data-v="keep">'+med('e-trunk','#9B4A67','sm')+'<p>'+(bkDays()===null?'No backup has been saved yet.':'It has been '+bkDays()+' days since your last backup.')+' Your entries live only on this device. Touch to save a copy.</p></button><button class="wsnooze" data-act="bkSnooze">Not today</button></div>');
+  if(wrows.length)h+='<section class="whisper">'+wrows.join('')+'</section>';
   var hor=all.filter(function(e){return (e.status==='open'&&(e.type==='receivable'||e.type==='payable')&&e.due&&e.due<=addDays(t,30)&&daysBetween(t,e.due)>7)||(e.type==='card'&&e.status!=='posted'&&e.due&&e.due<=addDays(t,30)&&daysBetween(t,e.due)>7);}).sort(function(a,b){return a.due.localeCompare(b.due);}).slice(0,5);
   if(hor.length){h+='<h2 class="h">On the horizon<small>what the coming month asks of you</small></h2>'+page(hor.map(function(e){var col=e.type==='receivable'?'var(--lav)':e.type==='payable'?'var(--apri)':'var(--blue)';var dd=daysBetween(t,e.due);var when=dd<0?'overdue by '+(-dd)+(dd===-1?' day':' days'):(dd===0?'today':(dd===1?'tomorrow':'in '+dd+' days'));return '<div class="mini" style="color:'+col+'"><i class="dt"></i><div class="t">'+esc(e.note||typeLabel(e.type))+'<small>'+typeLabel(e.type)+' · '+when+'</small></div><span class="num">'+money(e.amount)+'</span></div>';}).join(''));}
   var td=all.filter(function(e){return e.date===t;});
@@ -795,7 +841,7 @@ function wanderHTML(){
   top.forEach(function(x){
     var len=x.v/tot*C,dash=Math.max(len-2.5,0.5),col=x.other?'#8F8294':catInfo(x.n).color;
     seg+='<circle cx="70" cy="70" r="'+R+'" fill="none" stroke="'+col+'" stroke-width="20" stroke-dasharray="'+dash.toFixed(2)+' '+(C-dash).toFixed(2)+'" stroke-dashoffset="'+(-off).toFixed(2)+'" transform="rotate(-90 70 70)"/>';off+=len;
-    lg+='<div class="lg-row" style="--mc:'+col+'"><span class="dot"></span><span class="n">'+esc(x.n)+'</span><span class="p">'+Math.round(x.v/tot*100)+'%</span><span class="v">'+money(x.v)+'</span></div>';
+    lg+='<button class="lg-row lg-link" data-act="catLetters" data-v="'+(x.other?'__rest':esc(x.n))+'" style="--mc:'+col+'"><span class="dot"></span><span class="n">'+esc(x.n)+'</span><span class="p">'+Math.round(x.v/tot*100)+'%</span><span class="v">'+money(x.v)+'</span><span class="chev">&rsaquo;</span></button>';
   });
   return page('<div class="pg-title">Where it wandered</div><div class="cap">'+monthName(lm)+(lp==='all'?'':' · '+pName(lp))+'</div><div class="wander"><div class="donut"><svg viewBox="0 0 140 140" aria-hidden="true">'+seg+'</svg><div class="dc"><span class="cap">Departed</span><span class="num">'+kfmt(tot)+'</span></div></div><div class="legend">'+lg+'</div></div>');
 }
@@ -839,8 +885,8 @@ function vCards(){
   return h;
 }
 function vDesk(){
-  var T=[['plan','The planning salon','Arrange the month before it is danced.'],['calc','The reckoning table','Work out a sum, then enter it in the ledger.'],['allow','The allowances','Each category kept within its means.'],['wish','The wish chest','Dreams, saved coin by coin.'],['letter','The monthly letter','A word from your ledger.'],['recur','Standing engagements','Daily, weekly, monthly and yearly.'],['book','Book of Etiquette','How every page is meant to be danced.'],['keep','The keepsake chest','Backup, export and restore.']];
-  var G={plan:'<rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4M8 14h3M13 14h3M8 17h3"/>',calc:'<rect x="5" y="3" width="14" height="18" rx="3"/><path d="M8 7.5h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/>',allow:'<path d="M4 17a8 8 0 0 1 16 0"/><path d="M12 17l4-5"/><path d="M6 17h.01M18 17h.01M12 9h.01"/>',wish:'<path d="M12 3l2.2 5 5.4.5-4.1 3.6 1.2 5.3L12 14.6 7.3 17.4l1.2-5.3L4.4 8.5 9.8 8z"/>',letter:'<rect x="3.4" y="6" width="17.2" height="12" rx="2.4"/><path d="M3.8 6.8L12 13l8.2-6.2"/>',recur:'<path d="M17 4l3 3-3 3M4 11V9a2 2 0 0 1 2-2h14M7 20l-3-3 3-3M20 13v2a2 2 0 0 1-2 2H4"/>',book:ICONS.ledger,keep:'<path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/>'};
+  var T=[['plan','The planning salon','Arrange the month before it is danced.'],['calc','The reckoning table','Work out a sum, then enter it in the ledger.'],['trail','The fortune’s trail','Watch your fortune grow, month by month.'],['report','The chronicle','A month or a year of letters, to print.'],['allow','The allowances','Each category kept within its means.'],['wish','The wish chest','Dreams, saved coin by coin.'],['letter','The monthly letter','A word from your ledger.'],['recur','Standing engagements','Daily, weekly, monthly and yearly.'],['book','Book of Etiquette','How every page is meant to be danced.'],['keep','The keepsake chest','Backup, export and restore.']];
+  var G={trail:'<path d="M3 18l5-6 4 3 5-8 4 4"/><path d="M3 21h18"/><circle cx="20" cy="11" r="1.2"/>',report:'<rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/>',plan:'<rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4M8 14h3M13 14h3M8 17h3"/>',calc:'<rect x="5" y="3" width="14" height="18" rx="3"/><path d="M8 7.5h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/>',allow:'<path d="M4 17a8 8 0 0 1 16 0"/><path d="M12 17l4-5"/><path d="M6 17h.01M18 17h.01M12 9h.01"/>',wish:'<path d="M12 3l2.2 5 5.4.5-4.1 3.6 1.2 5.3L12 14.6 7.3 17.4l1.2-5.3L4.4 8.5 9.8 8z"/>',letter:'<rect x="3.4" y="6" width="17.2" height="12" rx="2.4"/><path d="M3.8 6.8L12 13l8.2-6.2"/>',recur:'<path d="M17 4l3 3-3 3M4 11V9a2 2 0 0 1 2-2h14M7 20l-3-3 3-3M20 13v2a2 2 0 0 1-2 2H4"/>',book:ICONS.ledger,keep:'<path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/>'};
   var sv=function(p){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>';};
   return '<div class="tiles">'+T.map(function(x){return '<button class="page tile" data-act="go" data-v="'+x[0]+'">'+sv(G[x[0]])+'<b>'+x[1]+'</b><span>'+x[2]+'</span></button>';}).join('')+'<button class="page tile" data-act="opening">'+sv('<path d="M7 9h10l2 10a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><path d="M9 9c0-3 1-5 3-5s3 2 3 5"/>')+'<b>Tending the purses</b><span>Set what each one holds.</span></button></div>'+orn();
 }
@@ -856,23 +902,105 @@ function vRecur(){
   return page((R.length?'<div class="lines">'+R.map(function(r){return '<div class="line t-payable"><button class="ln" style="grid-template-columns:minmax(0,1fr) auto" data-act="editRecur" data-id="'+r.id+'"><span class="desc"><b>'+esc(r.name)+'</b><i>'+fq[r.freq]+' · next '+shortDate(r.next||r.start)+' · '+pName(r.purse)+(r.autopay?' · paid automatically':'')+'</i></span><span class="amt"><span class="num">'+money(r.amount)+'</span></span></button></div>';}).join('')+'</div>':emptyHTML('No recurring bills yet.'))+'<div class="btnrow"><button class="btn gold" data-act="newRecur">Add a standing engagement</button></div>');
 }
 function vBook(){
-  var I=[['The four purses','Four purses keep your fortune: the Estate Vault of BPI, the Courier’s Purse of GCash, the Silken Reticule of Maya, and the Pin-Money Purse of coin in hand. Touch any purse, and only its letters take the floor.'],
-   ['A sum arrives','Salary, commissions, gifts and every blessing coin. It slips into the purse of your choosing, and the purse grows heavier.'],
-   ['A sum departs','A coin that leaves for tea, for carriage or for gown. It is taken from the purse you name, and the purse grows lighter.'],
-   ['Carried across','A coin carried gently from one purse to another. Your fortune is unchanged; only its lodging has moved.'],
-   ['Lent Letters (lavender)','Lent Letters to a dear friend. It leaves your purse the moment the letter is written, and returns when you mark it received with thanks.'],
-   ['Debts of Honour (apricot)','A debt awaiting its hour. Your purse stays untouched until you mark it paid with grace, and only then does the coin depart.'],
-   ['Letters of credit (pearl blue)','Each purchase made upon credit, noted with its purchase day and its due day. When the due day arrives, the ledger writes it down by itself, as a sum departing from the purse you chose.'],
-   ['Standing engagements','Duties that return as faithfully as the waltz, whether daily, weekly, monthly or yearly. They arrive as debts of honour on their day, or settle themselves if you wish.'],
-   ['The turning of the month','When a new month begins, whatever coin remains in each purse is carried over with you, and the ledger tells you how much was brought forward.'],
-   ['Today’s dance card','The first page lists every letter written today, with what arrived and what departed.'],
-   ['Where it wandered','A wheel in the ledger, showing where the month’s coin took its leave.'],
-   ['The reckoning table','Work out a sum upon the table, then write it into the ledger. You may also type a sum such as 120+85 straight into any amount.'],
-   ['The keepsake chest','Lock away a backup, export your ledger as a spreadsheet, or restore a saved one. Do this often, dear heart.'],
-   ['Day and night','The moon and sun at the top left carry you between the daylit ballroom and the midnight ball.']];
+  var SEC=[
+   ['Your first steps',[
+    ['What is the Dancing Letters','Your private ledger. It keeps four purses, every coin that arrives or departs, what you have lent and what you owe, and the plans for months to come. Nothing here is shared with anyone.'],
+    ['Your first three steps','First, tell each purse how much it holds today. On a fresh page, choose Fill my purses. Later, you can return through the Desk to Tending the purses. Second, touch the wax seal in the middle of the bottom bar, and write your first letter. Third, visit the Ballroom to watch your fortune in hand.'],
+    ['Where your pages live','Each device keeps its own pages. Nothing is uploaded anywhere, so Save a backup often in the Keepsake Chest.']]],
+   ['Moving through the house',[
+    ['The bottom bar','Five doors: the Ballroom, the Ledger, the wax seal Pen, Letters, and Credit. The wax seal in the centre is always the quickest way to write a new letter.'],
+    ['The Ballroom','Your first page. It shows your fortune in hand, each purse with what it holds, the dance card of duties for this week, soft whispers, and what the coming month asks of you.'],
+    ['The Ledger','Every letter of the month, day by day. Earlier and Later turn the pages between months.'],
+    ['Letters','Your Lent Letters and Debts of Honour, in two tabs, with what is awaiting return or payment.'],
+    ['Credit','Your letters of credit, their purchases, and when each falls due.'],
+    ['The Desk','The feather button at the top right opens the Writing Desk, with every other tool in a tile of its own.'],
+    ['Day and night','The sun or moon at the top left changes between the daylit ballroom and the midnight ball. Its picture always shows the mode you are in now.']]],
+   ['Terms of the ton',[
+    ['Purse','A place your money lives: the Estate Vault (BPI), the Courier’s Purse (GCash), the Silken Reticule (Maya) and the Pin-Money Purse (cash in hand). Touch a purse on the Ballroom, and only its letters take the floor.'],
+    ['Letter','Any one entry in your ledger. To write a letter is to record a coin arriving, departing or travelling.'],
+    ['A sum arrives','Money coming in: salary, commissions, gifts and blessing coins. The purse grows heavier.'],
+    ['A sum departs','Money going out. The purse grows lighter.'],
+    ['Carried across','Money moved from one purse to another. Your fortune is unchanged; only its lodging moves.'],
+    ['Fortune in hand','The sum of every purse together, shown on the Ballroom beside a tower of macarons. Touch the little eye beside its title to hide the sum from curious glances, and again to see it.'],
+    ['The macaron tower','Full at the start of each month. Every coin you spend takes macarons away, measured against the coin carried in plus the coin that arrives. It begins again on the first of the month.'],
+    ['Lent Letters','Money you lent to someone. It leaves your purse when you write it, and returns when you mark it received.'],
+    ['Debts of Honour','Money you owe. Your purse is untouched until you mark it paid, and only then does the coin depart.'],
+    ['Letters of credit','Your credit cards. Each purchase has a purchase day and a due day, and on the due day it becomes a departing letter by itself.'],
+    ['Standing engagements','Bills that repeat daily, weekly, monthly or yearly, such as rent or a subscription.'],
+    ['Carried forward','When a month turns, whatever coin remains in each purse is carried into the next month, and the ledger shows how much was brought forward.'],
+    ['To spare','In the Planning Salon, what you expect to receive minus what you plan to part with.'],
+    ['Allowance','The most a category may take in a month. In a month with a plan, the allowance is the sum of that category’s planned departures.'],
+    ['Wish','A goal you save toward, such as a trip. Its jar fills as you set coin aside.'],
+    ['Seal','A tap on a button marked Seal means keep and save. A wax seal icon is also how you lock the app with a secret.']]],
+   ['Writing a letter',[
+    ['How to begin','Touch the wax seal in the bottom bar, or any button marked Pen a letter. A sheet rises from below.'],
+    ['Which way it travels','Choose A sum departs, A sum arrives, or Carried across. The sheet changes to match.'],
+    ['The sum','Type the amount. You may also type a small sum such as 120+85, and it will be added for you.'],
+    ['Purse and category','Choose the purse, then what the coin concerns. Arriving sums use income categories, and departing sums use spending categories. The Book of Etiquette lists them all below.'],
+    ['A note and a day','Add a note if you like. The day is today unless you change it.'],
+    ['Mark this letter','Choose Ordinary for a plain letter, Lent Letters for money you are lending, or Debts of Honour for money you owe. The last two ask for a due day.'],
+    ['Seal & keep','Saves the new letter. When you amend an old one, the button reads Amend & seal.'],
+    ['Reading and amending a letter','Touch any line in the Ledger to read it. There you may Amend it or Withdraw the letter. Withdraw asks you to press twice, to be certain.']]],
+   ['The Ledger',[
+    ['Turning pages','Earlier and Later at the top move between months.'],
+    ['The chips','Arrived, Departed, Carried, Lent Letters, Debts of Honour and Credit narrow the page to one kind of letter. The purse chips narrow it to one purse.'],
+    ['Search','The search box finds a note, a category or a sum in this month.'],
+    ['Where it wandered','The wheel shows where the month’s departing coin went. Touch any category beneath it to read every letter spent there.'],
+    ['Carried in','The first line of a month shows what each purse brought forward from the last.']]],
+   ['Lent Letters and Debts of Honour',[
+    ['Lent Letters','A lending leaves your purse at once. When it comes back, open it and choose Mark received, then say which purse it returned to.'],
+    ['Debts of Honour','Writing a debt moves no money. When you pay it, choose Mark paid, and the coin departs from the purse you name.'],
+    ['Undoing a settlement','Choose Not yet received or Not yet paid to put it back among the open letters.'],
+    ['Due days','Letters due within the week appear on the dance card of duties in the Ballroom. Letters due within the month appear under On the horizon.']]],
+   ['Letters of credit',[
+    ['Open a credit letter','Name the card, such as BPI Rewards, and choose the purse it is settled from. Choose Seal the letter to keep it.'],
+    ['Note a purchase','Choose the card, give the sum and what was bought, then the purchase date and the due date. It waits as an open charge until the due day.'],
+    ['When the due day comes','The ledger writes the sum as a departing letter from the purse you chose, by itself.'],
+    ['Withdraw the letter','Removes a card you no longer use. Press twice to be certain.']]],
+   ['The Writing Desk',[
+    ['The Planning Salon','Arrange a month before it is danced. See the section below.'],
+    ['The reckoning table','A gentle calculator. Work out a sum, then choose Write this sum in the ledger to enter it as a letter.'],
+    ['The allowances','Each category kept within its means. A ribbon fills as the category spends and turns rose when near its limit.'],
+    ['The fortune’s trail','A soft line showing your fortune in hand at the close of each month, for up to a year, with how much it grew or eased.'],
+    ['The chronicle','A summary of a month or a whole year: what arrived, what departed, each purse, each category, and if you wish every letter. Choose A month or A year, turn pages with Earlier and Later, then Save as a PDF. A real PDF is drawn for you and offered to keep, such as in your Files app. A year begins with a decorated keepsake cover.'],
+    ['The wish chest','Dreams saved one coin at a time. See the section below.'],
+    ['The monthly letter','A short note from your ledger at the turning of the month: how much arrived, how much departed, and which allowances were kept.'],
+    ['Standing engagements','Add a repeating bill with Add a standing engagement. It arrives as a debt of honour on its day, or settles itself if you choose.'],
+    ['Tending the purses','Set or change what each purse holds. Your fortune in hand is worked out from these.'],
+    ['The keepsake chest','Backups, exports and secrets. See the section below.']]],
+   ['The Planning Salon',[
+    ['Add to the plan','Write each coin you expect and each sum you plan to part with. Choose whether it arrives or departs, name it, give the sum, and a day if you wish.'],
+    ['The totals','Two ribbons show what has arrived and what has departed so far. To spare is expected minus planned.'],
+    ['Earlier and Later','Move between months to plan ahead.'],
+    ['Plan ahead','Write an entry for a future month, which waits in Waiting in the wings until its month comes.'],
+    ['Bring in my duties','Adds your Debts of Honour, credit letters and standing engagements for the month as planned departures. It never adds the same one twice.'],
+    ['Write it in the ledger','Opens a letter with the plan’s details filled in. Once you seal it, the plan entry is ticked off by itself.'],
+    ['Tick it off','Marks a plan entry done without writing a letter. Not yet done reverses it.'],
+    ['A wish in the plan','A departing entry can be set aside for a wish. Its button reads Tuck it into the chest, and the wish’s jar fills when you touch it.'],
+    ['Repeat the plan','Carry this month forward for one, three, six or eleven months, or bring last month here. Choose every entry, arrivals only or departures only. On a single entry, Repeat in coming months copies just that one.'],
+    ['The year ahead','Twelve months side by side, each tagged Tight, Close or Comfortable, with a sentence about the whole year. Touch a month to open its plan.'],
+    ['The plan, against what truly happened','At the foot of a month, each category shows what was planned and what was truly spent.'],
+    ['The turning of the month','At a new month, plan entries left not yet done are offered with Carry them over or Leave them behind.'],
+    ['Clear the plan','Wipes the month’s plan so you can write it afresh. It asks you to press twice.'],
+    ['Undo','After repeating, clearing, bringing in duties or releasing an entry, a small Undo appears for a few seconds. Touch it to restore everything.']]],
+   ['The Wish Chest',[
+    ['Make a wish','Name what you wish for and the sum it will take. A jar appears.'],
+    ['Set coin aside','Touch a wish, choose Set coin aside, and give a sum. Take coin back returns it. Setting coin aside does not change your purses.'],
+    ['A wish granted','When the jar is full, the wish is granted.']]],
+   ['The Keepsake Chest',[
+    ['The Backed up seal','A gilded wax seal with a rose and a ribbon. It is bright when a backup is fresh, then fades and cracks as the days pass. Save a backup to renew it.'],
+    ['Save a backup','Saves every page in one file. Keep it somewhere safe, such as your Files app.'],
+    ['Export as a spreadsheet','Saves every letter as a file for Excel or Numbers.'],
+    ['Restore a backup','Choose a saved backup file to bring your pages back. This replaces what is on the device now.'],
+    ['A secret keeping','Lock the app with a four-digit secret. It shuts again after a minute away. It is a privacy screen, not a vault. If you forget, the Forgotten path removes the lock.'],
+    ['Keep it on your home screen','Open the app in Safari, touch Share, then Add to Home Screen. Afterwards use only that icon.'],
+    ['Backup reminder','On Mondays and Thursdays, a soft line on the Ballroom reminds you to back up. Not today puts it away until the next one.']]],
+   ['Small kindnesses',[
+    ['Press once more to be certain','Buttons that remove something change their words on the first touch. Touch again to confirm.'],
+    ['Search the Book','The box at the top of this page finds any word in the Book of Etiquette.']]]];
   var DEP=[['Household & Estate', 'Rent, utilities, repairs and all that keeps the house in good order.'], ['Larder & Pantry', 'Groceries and provisions for the kitchen.'], ['Tea & Supper', 'Meals out, coffee, treats and every pleasant hour at table.'], ['Carriage & Travel', 'Fares, fuel, tolls and journeys, near and far.'], ['Modiste & Gowns', 'Clothing, beauty and all that adorns you.'], ['Soirées & Tokens', 'Outings, entertainment, gifts and merry occasions.'], ['Physic & Wellbeing', 'Doctors, medicines and the care of body and mind.'], ['Dues & Accounts', 'Bills, subscriptions, fees and credit settlements.'], ['Vocation & Trade', 'Tools, supplies and the costs of your work.'], ['Kin & Kindred', 'Support given to family and loved ones.'], ['Chapel & Charity', 'Tithes, offerings and kindnesses to others.'], ['Missing Coins', 'Coin that cannot be accounted for.'], ['Sundries', 'Whatever fits no other drawer.']],ARR=[['Salary & Stipend', 'Your regular wages, paid on their day.'], ['Commissions', 'Earnings from each piece of work or sale.'], ['Bonus & Gratuities', 'Extra rewards, tips and thirteenth-month pay.'], ['Trade & Enterprise', 'Income from your business or ventures.'], ['Blessing Coins', 'Gifts and windfalls, given with love.'], ['Kin & Kindred', 'Allowance or help from family.'], ['Returned Coins', 'Refunds and reimbursements, come home again.'], ['Sundries', 'Income that fits no other drawer.']];
   var cat=function(x){var ci=catInfo(x[0]);return '<div class="bookitem cat">'+med(ci.mono,ci.color,'sm')+'<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div></div>';};
-  return '<input class="in srch" id="bookq" data-filter=".bookitem" placeholder="Search the Book of Etiquette" aria-label="Search the Book of Etiquette">'+page('<div class="bsec">'+I.map(function(x){return '<div class="bookitem"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>';}).join('')+'</div>')+page('<div class="bsec"><div class="cap" style="margin:0 0 4px">When a sum departs</div>'+DEP.map(cat).join('')+'</div>')+page('<div class="bsec"><div class="cap" style="margin:0 0 4px">When a sum arrives</div>'+ARR.map(cat).join('')+'</div>');
+  return '<input class="in srch" id="bookq" data-filter=".bookitem" placeholder="Search the Book of Etiquette" aria-label="Search the Book of Etiquette">'+SEC.map(function(s){return page('<div class="bsec"><div class="cap" style="margin:0 0 4px">'+s[0]+'</div>'+s[1].map(function(x){return '<div class="bookitem"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>';}).join('')+'</div>');}).join('')+page('<div class="bsec"><div class="cap" style="margin:0 0 4px">When a sum departs</div>'+DEP.map(cat).join('')+'</div>')+page('<div class="bsec"><div class="cap" style="margin:0 0 4px">When a sum arrives</div>'+ARR.map(cat).join('')+'</div>');
 }
 
 function planOut(cat,mk){var s=0,n=0;((S.config.plan&&S.config.plan.items)||[]).forEach(function(x){if(x.mk===mk&&x.dir==='out'&&x.cat===cat){s+=+x.amount||0;n++;}});return n?s:0;}
@@ -929,7 +1057,11 @@ function planDuties(mk){
   S.config.recurring.forEach(function(r){var n=r.next||r.start,g=0;while(n&&n<=end&&g<40){if(n.slice(0,7)===mk&&n>=t)out.push({name:r.name,amount:+r.amount||0,date:n,cat:'Dues & Accounts'});n=advance(r,n);g++;}});
   return out;
 }
-function planRow(x){var ci=catInfo(x.cat||(x.dir==='in'?'Sundries':'Sundries'));return '<button class="arow plr'+(x.done?' done':'')+'" data-act="planItem" data-id="'+x.id+'"><span class="tick">'+(x.done?'<svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></svg>':'')+'</span><span class="an"><b>'+esc(x.name)+'</b><i>'+(x.date?shortDate(x.date):'no set day')+(x.cat?' · '+esc(x.cat):'')+'</i></span><span class="num '+(x.dir==='in'?'pos':'')+'">'+money(x.amount)+'</span></button>';}
+function wishOf(x){return x&&x.wish?S.config.wishes.filter(function(w){return w.id===x.wish;})[0]:null;}
+function planRow(x){var ci=catInfo(x.cat||(x.dir==='in'?'Sundries':'Sundries'));return '<button class="arow plr'+(x.done?' done':'')+'" data-act="planItem" data-id="'+x.id+'"><span class="tick">'+(x.done?'<svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></svg>':'')+'</span><span class="an"><b>'+esc(x.name)+'</b><i>'+(x.date?shortDate(x.date):'no set day')+(wishOf(x)?' · for '+esc(wishOf(x).name):(x.cat?' · '+esc(x.cat):''))+'</i></span><span class="num '+(x.dir==='in'?'pos':'')+'">'+money(x.amount)+'</span></button>';}
+function carryList(){var cm=today().slice(0,7),pv=prevKey(cm);return ((S.config.plan&&S.config.plan.items)||[]).filter(function(y){return y.mk===pv&&!y.done&&!y.carried;});}
+function carryCard(mk){var cm=today().slice(0,7);if(mk!==cm)return '';var L=carryList();if(!L.length)return '';
+  return '<section class="page carry"><div class="cap" style="margin:0 0 4px">The turning of the month</div><p class="pg-sub" style="margin:0 0 8px">'+L.length+(L.length===1?' entry from ':' entries from ')+monthName(prevKey(cm))+' still waits, not yet done. Shall it travel into '+monthName(cm)+'?</p><div class="btnrow" style="margin:0"><button class="btn gold" data-act="carryPlan">Carry them over</button><button class="btn soft" data-act="dropCarry">Leave them behind</button></div></section>';}
 function vPlan(){
   var P=S.config.plan;
   if(P.income&&P.income.length){P.income.forEach(function(x){P.items.push({id:rid('p'),mk:today().slice(0,7),dir:'in',name:x.name,amount:x.amount,date:'',cat:'',done:false});});P.income=[];persist([],true);}
@@ -939,8 +1071,8 @@ function vPlan(){
   var srt=function(a,b){return (a.date||'9999').localeCompare(b.date||'9999');};
   var nav='<div class="mnav"><button data-act="pprev">Earlier</button><div class="num">'+monthName(mk)+'</div><button data-act="pnext">Later</button></div>';
   var msg=!items.length?'Begin by writing down each coin you expect, and each sum you plan to part with.':(spare>=0?'A comfortable margin. The month may be danced with a light heart.':'The plan asks for more than is expected. Perhaps trim a sum, or hope for a blessing.');
-  var h=page(nav+'<div class="prowp"><div><b>Expected to arrive</b><i>'+money(inD)+' has arrived</i></div><span class="num">'+money(inT)+'</span></div>'+(inT?meter(inD,inT).replace('meter ','meter good '):'')+'<div class="prowp"><div><b>Planned to depart</b><i>'+money(outD)+' has departed</i></div><span class="num">'+money(outT)+'</span></div>'+(outT?meter(outD,outT):'')+'<div class="spare'+(spare<0?' neg':'')+'"><span class="cap" style="margin:0">To spare</span><span class="num">'+money(spare)+'</span><p>'+msg+'</p></div>','plan');
-  h+='<div class="btnrow" style="margin:0"><button class="btn gold" data-act="newPlan">Add to the plan</button><button class="btn soft" data-act="bringDuties">Bring in my duties</button></div><div class="btnrow" style="margin:0"><button class="btn soft" data-act="planAhead">Plan ahead</button><button class="btn soft" data-act="repeatPlan">Repeat last month</button>'+(items.length?'<button class="btn soft" data-act="clearPlan">Clear the plan</button>':'')+'</div>';
+  var h=carryCard(mk)+page(nav+'<div class="prowp"><div><b>Expected to arrive</b><i>'+money(inD)+' has arrived</i></div><span class="num">'+money(inT)+'</span></div>'+(inT?meter(inD,inT).replace('meter ','meter good '):'')+'<div class="prowp"><div><b>Planned to depart</b><i>'+money(outD)+' has departed</i></div><span class="num">'+money(outT)+'</span></div>'+(outT?meter(outD,outT):'')+'<div class="spare'+(spare<0?' neg':'')+'"><span class="cap" style="margin:0">To spare</span><span class="num">'+money(spare)+'</span><p>'+msg+'</p></div>','plan');
+  h+='<div class="btnrow" style="margin:0"><button class="btn gold" data-act="newPlan">Add to the plan</button><button class="btn soft" data-act="bringDuties">Bring in my duties</button></div><div class="btnrow" style="margin:0"><button class="btn soft" data-act="planAhead">Plan ahead</button><button class="btn soft" data-act="go" data-v="year">The year ahead</button><button class="btn soft" data-act="repeatSheet">Repeat the plan</button>'+(items.length?'<button class="btn soft" data-act="clearPlan">Clear the plan</button>':'')+'</div>';
   if(ins.length)h+='<h2 class="h">Coin you expect<small>each arrival, in its own time</small></h2>'+page(ins.sort(srt).map(planRow).join(''));
   if(outs.length)h+='<h2 class="h">Sums you plan to part with<small>each departure, in its own time</small></h2>'+page(outs.sort(srt).map(planRow).join(''));
   var cm=today().slice(0,7),wait=P.items.filter(function(x){return x.mk>cm&&x.mk!==mk;}).sort(function(a,b){return (a.mk+(a.date||'')).localeCompare(b.mk+(b.date||''));});
@@ -950,8 +1082,77 @@ function vPlan(){
     if(rows)h+='<h2 class="h">The plan, against what truly happened<small>each category, as the month is danced</small></h2>'+page(rows)+'<p class="hint" style="text-align:center">These plans also set each category\'s allowance, on its own page.</p>';}
   return h;
 }
+function vYear(){
+  var cm=today().slice(0,7),I=S.config.plan.items,rows=[],i;
+  for(i=0;i<12;i++){var mk=addMonths(cm+'-01',i,1).slice(0,7),inn=0,out=0,n=0;I.forEach(function(x){if(x.mk===mk){n++;if(x.dir==='in')inn+=+x.amount||0;else out+=+x.amount||0;}});rows.push({mk:mk,i:inn,o:out,n:n,s:inn-out});}
+  var mx=Math.max.apply(null,rows.map(function(r){return Math.max(r.i,r.o);}).concat([1])),used=rows.filter(function(r){return r.n;}),tight=used.filter(function(r){return r.s<0;}).sort(function(a,b){return a.s-b.s;})[0];
+  var sub=!used.length?'Nothing is written yet. Plan a month, and it will appear here.':tight?'The tightest month looks to be '+monthName(tight.mk)+', asking '+money(-tight.s)+' more than is expected.':'Every planned month holds a margin. A gentle year, so far.';
+  var nE=used.filter(function(r){return r.s>=0&&!(r.i>0&&r.s<r.i*.15);}).length,nC=used.filter(function(r){return r.s>=0&&r.i>0&&r.s<r.i*.15;}).length,nT=used.filter(function(r){return r.s<0;}).length;
+  var sum=used.length?'Of the '+used.length+(used.length===1?' month':' months')+' you have planned, '+nE+(nE===1?' is':' are')+' comfortable'+(nC?', '+nC+(nC===1?' is':' are')+' close':'')+' and '+nT+(nT===1?' is':' are')+' tight.':'';
+  var h='<p class="pg-sub" style="margin-bottom:8px">'+sub+(sum?' '+sum:'')+'</p>';
+  h+=rows.map(function(r){var tag=!r.n?'':r.s<0?'<span class="ytag tight">Tight</span>':(r.i>0&&r.s<r.i*.15)?'<span class="ytag close">Close</span>':'<span class="ytag ease">Comfortable</span>';
+    return '<button class="yr'+(r.s<0?' tight':'')+'" data-act="yearMonth" data-v="'+r.mk+'"><div class="yh"><b>'+monthName(r.mk)+'</b>'+tag+'</div>'
+     +(r.n?'<div class="ycols"><div><i>Arrives</i><span class="yb arr"><u style="width:'+Math.round(r.i/mx*100)+'%"></u></span><b class="num pos">'+money(r.i)+'</b></div><div><i>Departs</i><span class="yb dep"><u style="width:'+Math.round(r.o/mx*100)+'%"></u></span><b class="num">'+money(r.o)+'</b></div></div><div class="ysp">To spare <b class="num'+(r.s<0?' neg':'')+'">'+money(r.s)+'</b></div>':'<div class="ysp">Nothing written yet. Touch to begin.</div>')+'</button>';}).join('');
+  return h;
+}
+function bkDays(){try{var t=+localStorage.getItem('gp_bk')||0;return t?Math.floor((Date.now()-t)/864e5):null;}catch(x){return null;}}
+function bkDue(){if(db)return false;var d=new Date().getDay();if(d!==1&&d!==4)return false;try{if(localStorage.getItem('gp_bk_snz')===today())return false;}catch(x){}
+  var has=allEntries().length||((S.config.plan&&S.config.plan.items)||[]).length;if(!has)return false;var k=bkDays();return k===null||k>=2;}
+function bkLine(){var k=bkDays();return k===null?'No backup has been saved yet.':k===0?'Your last backup was saved today.':'Your last backup was saved '+k+(k===1?' day':' days')+' ago.';}
+function bkSeal(){
+  var k=bkDays(),fresh=db?1:(k===null?.3:k<=1?1:k<=3?.9:k<=7?.7:k<=14?.5:.35),gray=db?0:(k===null?.7:k<=3?0:k<=7?.25:k<=14?.5:.75),crack=!db&&(k===null||k>7),
+  say=db?'Kept in the archive':(k===null?'Not yet sealed':k<=3?'Freshly backed up':k<=7?'The seal is fading':'The seal has faded');
+  var N=22,pts=[],i,r,a;for(i=0;i<N;i++){a=i*Math.PI*2/N;r=36+2.4*Math.sin(i*2.3+1)+1.6*Math.sin(i*5.1);pts.push([50+r*Math.cos(a),48+r*Math.sin(a)]);}
+  var path='M'+((pts[0][0]+pts[N-1][0])/2).toFixed(1)+' '+((pts[0][1]+pts[N-1][1])/2).toFixed(1);
+  for(i=0;i<N;i++){var p=pts[i],q=pts[(i+1)%N];path+='Q'+p[0].toFixed(1)+' '+p[1].toFixed(1)+' '+((p[0]+q[0])/2).toFixed(1)+' '+((p[1]+q[1])/2).toFixed(1);}
+  path+='Z';
+  var pet='',j,L=[[17,15,'url(#bkp1)'],[12,11.5,'url(#bkp2)'],[8,8,'url(#bkp3)']];
+  [[0,60,16,11.5],[1,72,11.5,8.5],[2,0,7.5,5.8]].forEach(function(lv){var cnt=lv[0]===2?4:lv[0]===1?5:6;for(j=0;j<cnt;j++)pet+='<ellipse cx="50" cy="'+(48-lv[2]*0.62)+'" rx="'+(lv[3])+'" ry="'+lv[2]*.9+'" transform="rotate('+(j*360/cnt+lv[1]*0.3+(lv[0]*18))+' 50 48)" fill="'+L[lv[0]][2]+'" stroke="#8A6128" stroke-opacity=".55" stroke-width=".7"/>';});
+  var svg='<svg viewBox="0 0 100 112" aria-hidden="true" style="opacity:'+fresh+';filter:grayscale('+gray+') drop-shadow(0 5px 5px rgba(120,80,40,.28))"><defs>'
+   +'<radialGradient id="bkw" cx="34%" cy="28%" r="85%"><stop offset="0" stop-color="#FFF3CC"/><stop offset=".45" stop-color="#E9C97C"/><stop offset="1" stop-color="#B58634"/></radialGradient>'
+   +'<radialGradient id="bkp1" cx="50%" cy="20%" r="90%"><stop offset="0" stop-color="#F7DFA0"/><stop offset="1" stop-color="#C9A04A"/></radialGradient>'
+   +'<radialGradient id="bkp2" cx="50%" cy="20%" r="90%"><stop offset="0" stop-color="#FBE9B8"/><stop offset="1" stop-color="#D2AB57"/></radialGradient>'
+   +'<radialGradient id="bkp3" cx="50%" cy="20%" r="90%"><stop offset="0" stop-color="#FFF4D2"/><stop offset="1" stop-color="#DDB968"/></radialGradient>'
+   +'<linearGradient id="bkr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C05675"/><stop offset="1" stop-color="#8A3250"/></linearGradient></defs>'
+   +'<path d="M36 76l-9 32 11-6 6 9 7-32z" fill="url(#bkr)"/><path d="M64 76l9 32-11-6-6 9-7-32z" fill="url(#bkr)" fill-opacity=".92"/>'
+   +'<path d="'+path+'" fill="url(#bkw)" stroke="#9C7229" stroke-width=".9" stroke-opacity=".7"/>'
+   +'<circle cx="50" cy="48" r="29" fill="none" stroke="#8A6128" stroke-opacity=".5" stroke-width="1.3"/><circle cx="50" cy="48" r="27.4" fill="none" stroke="#FFF3CC" stroke-opacity=".7" stroke-width=".7"/>'
+   +'<g>'+pet+'</g><circle cx="50" cy="48" r="4.6" fill="#EBCB86" stroke="#8A6128" stroke-opacity=".6" stroke-width=".8"/><path d="M47.2 47c.7-1.8 3.6-1.8 4.4 0" fill="none" stroke="#8A6128" stroke-opacity=".6" stroke-width=".8"/>'
+   +'<path d="M26 34c4-8 12-13 22-14" fill="none" stroke="#FFFBE6" stroke-opacity=".75" stroke-width="2" stroke-linecap="round"/>'
+   +(crack?'<path d="M62 14l-5 12 6 8-4 10M30 70l9-6-2-9" fill="none" stroke="#6E4A1C" stroke-opacity=".55" stroke-width="1" stroke-linecap="round"/>':'')
+   +'</svg>';
+  return '<div class="page bkseal">'+svg+'<div><b>'+say+'</b><span>'+(db?'Your pages follow you from device to device.':bkLine()+(k===null||k>7?' Save a backup to renew the seal.':''))+'</span></div></div>';
+}
+function vTrail(){
+  var cm=today().slice(0,7),keys=Object.keys(S.months).filter(function(k){return k<=cm;}).sort();
+  if(!keys.length||keys[keys.length-1]!==cm)keys.push(cm);
+  keys=keys.slice(-12);var first=keys[0],pts=[],i;
+  pts.push({l:'Start',v:monthStats(first).start,k:null});
+  keys.forEach(function(k){pts.push({l:monthName(k).split(' ')[0].slice(0,3),v:monthStats(k).end,k:k});});
+  var W=320,H=190,pl=44,pr=14,pt=16,pb=30,mn=Math.min.apply(null,pts.map(function(p){return p.v;}).concat([0])),mx=Math.max.apply(null,pts.map(function(p){return p.v;}).concat([1]));
+  if(mx===mn)mx=mn+1;var pad=(mx-mn)*.08;mx+=pad;if(mn<0)mn-=pad;
+  var X=function(i){return pl+(W-pl-pr)*(pts.length===1?.5:i/(pts.length-1));},Y=function(v){return pt+(H-pt-pb)*(1-(v-mn)/(mx-mn));};
+  var xy=pts.map(function(p,i){return [X(i),Y(p.v)];}),d='M'+xy[0][0].toFixed(1)+' '+xy[0][1].toFixed(1);
+  for(i=0;i<xy.length-1;i++){var p0=xy[Math.max(0,i-1)],p1=xy[i],p2=xy[i+1],p3=xy[Math.min(xy.length-1,i+2)];
+    var c1x=p1[0]+(p2[0]-p0[0])/6,c1y=p1[1]+(p2[1]-p0[1])/6,c2x=p2[0]-(p3[0]-p1[0])/6,c2y=p2[1]-(p3[1]-p1[1])/6;
+    d+='C'+c1x.toFixed(1)+' '+c1y.toFixed(1)+' '+c2x.toFixed(1)+' '+c2y.toFixed(1)+' '+p2[0].toFixed(1)+' '+p2[1].toFixed(1);}
+  var base=Y(Math.max(mn,0)),area=d+'L'+xy[xy.length-1][0].toFixed(1)+' '+base.toFixed(1)+'L'+xy[0][0].toFixed(1)+' '+base.toFixed(1)+'Z';
+  var grid='',gv=[mn<0?mn:0,(mn+mx)/2,mx].map(function(v){return Math.round(v);});
+  gv.forEach(function(v){grid+='<path d="M'+pl+' '+Y(v).toFixed(1)+'H'+(W-pr)+'" style="stroke:var(--line)" stroke-dasharray="2 4" fill="none"/><text x="'+(pl-6)+'" y="'+(Y(v)+3).toFixed(1)+'" text-anchor="end" style="fill:var(--ink2)" font-size="9" font-family="Cormorant Garamond,serif">'+(Math.abs(v)>=1000?(v/1000).toFixed(Math.abs(v)>=100000?0:1)+'k':v)+'</text>';});
+  if(mn<0)grid+='<path d="M'+pl+' '+Y(0).toFixed(1)+'H'+(W-pr)+'" style="stroke:var(--neg)" stroke-opacity=".4" fill="none"/>';
+  var dots='',lab='',step=pts.length>8?2:1;
+  xy.forEach(function(q,i){var last=i===xy.length-1;dots+='<circle cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+'" r="'+(last?5:3.2)+'" style="fill:'+(last?'var(--rose)':'var(--surface)')+';stroke:var(--gold)" stroke-width="1.6"/>';
+    if(i%step===0||last)lab+='<text x="'+q[0].toFixed(1)+'" y="'+(H-10)+'" text-anchor="middle" style="fill:var(--ink2)" font-size="9.5" font-style="italic" font-family="Cormorant Garamond,serif">'+pts[i].l+'</text>';});
+  var svg='<svg viewBox="0 0 '+W+' '+H+'" class="trail" role="img" aria-label="Your fortune in hand over the months"><defs><linearGradient id="trg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--rose)" stop-opacity=".32"/><stop offset="1" style="stop-color:var(--rose)" stop-opacity="0"/></linearGradient></defs>'+grid+'<path d="'+area+'" fill="url(#trg)"/><path d="'+d+'" fill="none" style="stroke:var(--rose)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>'+dots+lab+'</svg>';
+  var chg=pts[pts.length-1].v-pts[0].v,mo=keys.length;
+  var msg=pts.length<3?'Your trail has only just begun. Each month that closes adds another step.':(chg>0?'Since '+monthName(first).split(' ')[0]+', your fortune has grown by '+money(chg)+'. A lovely climb.':chg<0?'Since '+monthName(first).split(' ')[0]+', your fortune has eased by '+money(-chg)+'. Every trail has its valleys.':'Your fortune has held steady across these months.');
+  var h='<p class="pg-sub" style="margin-bottom:8px">'+msg+'</p>'+page(svg+'<div class="pg-sub" style="text-align:center;margin:2px 0 0">Fortune in hand at the close of each month</div>');
+  var rows=keys.slice().reverse().map(function(k,ix){var j=keys.indexOf(k),end=pts[j+1].v,prev=pts[j].v,dl=end-prev;return '<div class="arow"><span class="an"><b>'+monthName(k)+(k===cm?' (so far)':'')+'</b><i>'+(dl>=0?'Grew by ':'Eased by ')+money(Math.abs(dl))+'</i></span><span class="num">'+money(end)+'</span></div>';}).join('');
+  return h+'<h2 class="h">Month by month<small>where each page closed</small></h2>'+page(rows);
+}
 function vKeep(){
   var h=page('<p class="pg-sub">'+(db?'Your pages are kept safely in the archive and follow you from device to device.':'These pages live on this device only. Save a backup often.')+'</p>');
+  h+=bkSeal();
   h+='<button class="page tile" style="min-height:0" data-act="lockSetup"><b>A secret keeping</b><span>'+(lockOn()?'The seal is set. Change it, or remove it.':'Close the door with a four-digit secret.')+'</span></button>';
   h+='<button class="page tile" style="min-height:0" data-act="homeGuide"><b>Keep it on your home screen</b><span>Place the Dancing Letters beside your other apps.</span></button>';
   h+='<button class="page tile" style="min-height:0" data-act="expJson"><b>Save a backup</b><span>Everything in one file, ready to restore.</span></button>';
@@ -959,8 +1160,8 @@ function vKeep(){
   h+='<label class="page tile" style="min-height:0;cursor:pointer"><b>Restore a backup</b><span>Choose a saved backup file.</span><input type="file" id="restoreFile" accept=".json,application/json" style="position:absolute;opacity:0;width:1px;height:1px"></label>';
   return h;
 }
-var TITLES={ledger:['The Ledger','Every coin that has taken the floor.'],dues:['Letters of Account','Lent Letters, and coin owed.'],cards:['Letters of Credit','Charged with delight, settled with grace.'],desk:['The Writing Desk','Quills, sums and keepsakes.'],calc:['The Reckoning Table','Sums worked gently, then entered in the ledger.'],recur:['Standing Engagements','Duties that return as faithfully as the waltz.'],book:['Book of Etiquette','How every page is meant to be danced.'],plan:['The Planning Salon','Where the month is arranged before it is danced.'],allow:['The Allowances','Every category kept within its means.'],wish:['The Wish Chest','Dreams, saved one coin at a time.'],letter:['The Monthly Letter','A word from your ledger, at the turning of the month.'],keep:['The Keepsake Chest','Your pages, safely kept.']};
-var SUBV={plan:1,calc:1,recur:1,book:1,keep:1,allow:1,wish:1,letter:1};
+var TITLES={ledger:['The Ledger','Every coin that has taken the floor.'],dues:['Letters of Account','Lent Letters, and coin owed.'],cards:['Letters of Credit','Charged with delight, settled with grace.'],desk:['The Writing Desk','Quills, sums and keepsakes.'],calc:['The Reckoning Table','Sums worked gently, then entered in the ledger.'],recur:['Standing Engagements','Duties that return as faithfully as the waltz.'],book:['Book of Etiquette','How every page is meant to be danced.'],trail:['The Fortune’s Trail','Your fortune in hand, month by month.'],report:['The Chronicle','A month or a year of letters, ready to print.'],year:['The Year Ahead','Each coming month, side by side.'],plan:['The Planning Salon','Where the month is arranged before it is danced.'],allow:['The Allowances','Every category kept within its means.'],wish:['The Wish Chest','Dreams, saved one coin at a time.'],letter:['The Monthly Letter','A word from your ledger, at the turning of the month.'],keep:['The Keepsake Chest','Your pages, safely kept.']};
+var SUBV={trail:1,report:1,year:1,plan:1,calc:1,recur:1,book:1,keep:1,allow:1,wish:1,letter:1};
 function curTheme(){var a=document.documentElement.getAttribute('data-theme');if(a)return a;try{return 'light';}catch(e){return 'light';}}
 function render(){
   if(!loaded)return;
@@ -970,8 +1171,8 @@ function render(){
   var base='<div class="chglow"></div>'+pearls()+tb+deskB;
   if(view==='home'){var hr=new Date().getHours();hd.className='top';hd.innerHTML=base+'<div class="script">The Dancing Letters</div><p class="sub">'+(hr<12?'Good morning':hr<18?'Good afternoon':'Good evening')+', dear heart.</p><div class="datecap">'+longDate(today())+'</div>';}
   else{var T=TITLES[view];hd.className='top small';hd.innerHTML=base+'<h1 class="sec">'+T[0]+'</h1><p class="sub">'+T[1]+'</p>';}
-  var fn={home:vHome,ledger:vLedger,dues:vDues,cards:vCards,desk:vDesk,plan:vPlan,calc:vCalc,recur:vRecur,book:vBook,keep:vKeep,allow:vAllow,wish:vWish,letter:vLetter}[view];
-  var st=window.scrollY;m.innerHTML=(SUBV[view]?'<button class="back" data-act="go" data-v="desk">&lsaquo; The Writing Desk</button>':'')+fn();
+  var fn={home:vHome,ledger:vLedger,dues:vDues,cards:vCards,desk:vDesk,year:vYear,trail:vTrail,report:vReport,plan:vPlan,calc:vCalc,recur:vRecur,book:vBook,keep:vKeep,allow:vAllow,wish:vWish,letter:vLetter}[view];
+  var st=window.scrollY;m.innerHTML=(SUBV[view]?(view==='year'?'<button class="back" data-act="go" data-v="plan">&lsaquo; The Planning Salon</button>':'<button class="back" data-act="go" data-v="desk">&lsaquo; The Writing Desk</button>'):'')+fn();
   var tabs=[['home','Ballroom','home'],['ledger','Ledger','ledger'],null,['dues','Letters','dues'],['cards','Credit','card']];
   var cur=SUBV[view]?'desk':view;
   $('#tabin').innerHTML=tabs.map(function(t){return t?'<button class="tab" data-act="go" data-v="'+t[0]+'"'+(cur===t[0]?' aria-current="page"':'')+'>'+ico(t[2])+'<span>'+t[1]+'</span></button>':'<span></span>';}).join('');
@@ -984,7 +1185,9 @@ function go(v){view=v;window.scrollTo(0,0);render();}
 var tok=0;
 function openSheet(html){var w=$('#sheetWrap');tok++;w.innerHTML='<div class="scrim" data-act="closeSheet"></div><div class="sheet" role="dialog" aria-modal="true"><div class="shvine">'+vine(1600,64)+'</div>'+html+'</div>';w.classList.add('on');requestAnimationFrame(function(){requestAnimationFrame(function(){w.classList.add('open');});});}
 function closeSheet(){if(!window.__savingLink)window.__linkKeep=0;var w=$('#sheetWrap');var t=++tok;w.classList.remove('open');setTimeout(function(){if(t===tok){w.classList.remove('on');w.innerHTML='';}},400);}
-var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on');},3000);}
+var undoSnap=null;
+function toastUndo(m){var t=$('#toast');t.innerHTML=esc(m)+' <button class="tundo" data-act="undoPlan">Undo</button>';t.classList.add('on','act');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on','act');},8000);}
+var tt;function toast(m){var t=$('#toast');t.classList.remove('act');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on');},3000);}
 function burst(){
   var b=$('#burst');if(!b)return;var h='',i;
   for(i=0;i<24;i++){var a=Math.random()*Math.PI*2,r=90+Math.random()*190;h+='<i style="--dx:'+(Math.cos(a)*r).toFixed(0)+'px;--dy:'+(Math.sin(a)*r-120).toFixed(0)+'px;--rot:'+((Math.random()*720-360)|0)+'deg;animation-delay:'+(Math.random()*.15).toFixed(2)+'s"></i>';}
@@ -1118,20 +1321,39 @@ function asideSheet(id){
   openSheet(h);
 }
 
+function catSheet(v){
+  var arr=(S.months[lm]||[]).filter(function(e){return e.type==='expense'&&(lp==='all'||e.purse===lp);}),m={};
+  arr.forEach(function(e){var k=e.cat||'Sundries';m[k]=(m[k]||0)+e.amount;});
+  var names=Object.keys(m).sort(function(a,b){return m[b]-m[a];}),top=names.slice(0,6),set,title;
+  if(v==='__rest'){set=names.slice(6);title='Everything else';}else{set=[v];title=v;}
+  var L=arr.filter(function(e){return set.indexOf(e.cat||'Sundries')>=0;}).sort(function(a,b){return (b.date+(b.ts||0)).toString().localeCompare((a.date+(a.ts||0)).toString());});
+  var tot=L.reduce(function(s,e){return s+e.amount;},0),ci=v==='__rest'?null:catInfo(v);
+  var h='<h3>'+(ci?med(ci.mono,ci.color,'sm')+' ':'')+esc(title)+'</h3><p class="hint">'+monthName(lm)+(lp==='all'?'':' · '+pName(lp))+'. '+L.length+(L.length===1?' letter':' letters')+', '+money(tot)+' in all. Touch one to read it.</p>';
+  var cur='';h+='<div class="lines">'+L.map(function(e){var s='';if(e.date!==cur){cur=e.date;s='<div class="day">'+longDate(cur)+'</div>';}return s+lineHTML(e);}).join('')+'</div>';
+  openSheet(h);
+}
 function planSheet(id,ahead){
   var x=id?S.config.plan.items.filter(function(y){return y.id===id;})[0]:null;x=x||{dir:'out',name:'',amount:'',date:'',cat:''};
   var mk=curPm(),dir=x.dir||'out',cin=INCATS.some(function(c){return c[0]===x.cat;})?x.cat:INCATS[0][0],cout=CATS.some(function(c){return c[0]===x.cat;})?x.cat:CATS[0][0];
   var h='<h3>'+(id?'Amend the plan':'Add to the plan')+'</h3><div class="field"><span class="l">Which way does it travel?</span>'+chips('pdir',[['in','A sum arrives'],['out','A sum departs']],dir)+'</div>';
   h+='<label class="field"><span class="l">What is it?</span><input class="in" id="f-pname" maxlength="60" value="'+esc(x.name)+'" placeholder="e.g. Salary, or Electric bill"></label><label class="field"><span class="l">The sum</span><input class="in amtin" id="f-pamt" inputmode="decimal" autocomplete="off" placeholder="0.00" value="'+esc(x.amount)+'"></label>';
   h+=''+(ahead?'<label class="field"><span class="l">In which month?</span><input class="in" type="month" id="f-pmon" value="'+nextKey(today().slice(0,7))+'" min="'+nextKey(today().slice(0,7))+'"></label>':'')+'<label class="field"><span class="l">On which day? (optional)</span><input class="in" type="date" id="f-pdate" value="'+esc(x.date||'')+'"'+(ahead?'':' min="'+mk+'-01" max="'+monthEnd(mk)+'"')+'></label>';
-  h+='<div class="field" id="pc-in"'+(dir==='in'?'':' hidden')+'><span class="l">Concerning</span><div class="chips" data-name="pcin" data-value="'+esc(cin)+'">'+catInner(INCATS,cin)+'</div></div><div class="field" id="pc-out"'+(dir==='out'?'':' hidden')+'><span class="l">Concerning</span><div class="chips" data-name="pcout" data-value="'+esc(cout)+'">'+catInner(CATS,cout)+'</div></div>';
+  h+='<div class="field" id="pc-in"'+(dir==='in'?'':' hidden')+'><span class="l">Concerning</span><div class="chips" data-name="pcin" data-value="'+esc(cin)+'">'+catInner(INCATS,cin)+'</div></div>'+(S.config.wishes.length?'<div class="field" id="pc-wish"'+(dir==='out'?'':' hidden')+'><span class="l">Set aside for a wish? (optional)</span>'+chips('pwish',[['','None']].concat(S.config.wishes.map(function(w){return [w.id,w.name];})),x.wish||'')+'</div>':'')+'<div class="field" id="pc-out"'+(dir==='out'?'':' hidden')+'><span class="l">Concerning</span><div class="chips" data-name="pcout" data-value="'+esc(cout)+'">'+catInner(CATS,cout)+'</div></div>';
   h+='<div class="btnrow">'+(id?'<button class="btn danger" data-act="delPlan" data-id="'+id+'">Release it</button>':'')+'<button class="btn gold" data-act="savePlan" data-id="'+(id||'')+'">Keep it in the plan</button></div>';
+  openSheet(h);
+}
+function repeatSheet(id){
+  var h='<h3>Repeat the plan</h3>';
+  if(!id)h+='<div class="field"><span class="l">How shall it travel?</span>'+chips('rmode',[['fwd','Carry this month forward'],['back','Bring last month here']],'fwd')+'</div>';
+  h+='<div class="field" id="rc-cnt"><span class="l">For how many coming months?</span>'+chips('rcount',[['1','Next month'],['3','Three months'],['6','Six months'],['11','Eleven months']],'3')+'</div>';
+  if(!id)h+='<div class="field"><span class="l">Which entries?</span>'+chips('rwhat',[['all','Every entry'],['in','Arrivals only'],['out','Departures only']],'all')+'</div>';
+  h+='<p class="hint">Each entry keeps its name, sum and day. Anything already written for a month is left alone, so nothing is doubled.</p><div class="btnrow"><button class="btn gold" data-act="doRepeat" data-id="'+(id||'')+'">Repeat it</button></div>';
   openSheet(h);
 }
 function planDetail(id){
   var x=S.config.plan.items.filter(function(y){return y.id===id;})[0];if(!x)return;
-  var h='<h3>'+esc(x.name)+'</h3><div class="num" style="text-align:center;font-size:2.4rem;margin:2px 0 6px">'+money(x.amount)+'</div><p class="hint" style="text-align:center">'+(x.dir==='in'?'A sum that arrives':'A sum that departs')+(x.date?' · '+longDate(x.date):'')+(x.cat?' · '+esc(x.cat):'')+(x.done?' · done':'')+'</p>';
-  h+='<div class="btnrow">'+(x.done?'<button class="btn soft" data-act="tickPlan" data-id="'+id+'">Not yet done</button>':'<button class="btn gold" data-act="writePlan" data-id="'+id+'">Write it in the ledger</button><button class="btn soft" data-act="tickPlan" data-id="'+id+'">Tick it off</button>')+'<button class="btn soft" data-act="editPlan" data-id="'+id+'">Amend</button></div>';
+  var h='<h3>'+esc(x.name)+'</h3><div class="num" style="text-align:center;font-size:2.4rem;margin:2px 0 6px">'+money(x.amount)+'</div><p class="hint" style="text-align:center">'+(x.dir==='in'?'A sum that arrives':'A sum that departs')+(x.date?' · '+longDate(x.date):'')+(wishOf(x)?' · for '+esc(wishOf(x).name):(x.cat?' · '+esc(x.cat):''))+(x.done?(wishOf(x)?' · tucked away':' · done'):'')+'</p>';
+  var wx=wishOf(x);h+='<div class="btnrow">'+(x.done?'<button class="btn soft" data-act="tickPlan" data-id="'+id+'">'+(wx?'Take it back out':'Not yet done')+'</button>':wx?'<button class="btn gold" data-act="tickPlan" data-id="'+id+'">Tuck it into the chest</button>':'<button class="btn gold" data-act="writePlan" data-id="'+id+'">Write it in the ledger</button><button class="btn soft" data-act="tickPlan" data-id="'+id+'">Tick it off</button>')+'<button class="btn soft" data-act="repeatSheet" data-id="'+id+'">Repeat in coming months</button><button class="btn soft" data-act="editPlan" data-id="'+id+'">Amend</button></div>';
   openSheet(h);
 }
 function openingSheet(){
@@ -1142,12 +1364,13 @@ function openingSheet(){
 }
 
 /* export / restore */
+function markBackup(n){if(/backup/.test(n)){try{localStorage.setItem('gp_bk',String(Date.now()));}catch(x){}}}
 async function offer(name,data){
   try{var d=window.claude&&window.claude.use?await window.claude.use('downloads'):null;
-    if(d){await d.save({filename:name,data:data});toast('Your keepsake is ready.');return;}}
+    if(d){await d.save({filename:name,data:data});markBackup(name);toast('Your keepsake is ready.');return;}}
   catch(e){if(e&&e.code==='declined')return;}
-  try{var bl=new Blob([data],{type:/\.json$/i.test(name)?'application/json':'text/csv'}),u=URL.createObjectURL(bl),an=document.createElement('a');an.href=u;an.download=name;document.body.appendChild(an);an.click();setTimeout(function(){document.body.removeChild(an);URL.revokeObjectURL(u);},1500);toast('Your keepsake is ready.');return;}catch(e){}
-  try{await navigator.clipboard.writeText(data);toast('Copied. Paste it into a note to keep it safe.');}catch(e){toast('Saving is not available here.');}
+  try{var bl=new Blob([data],{type:/\.json$/i.test(name)?'application/json':/\.html$/i.test(name)?'text/html':'text/csv'}),u=URL.createObjectURL(bl),an=document.createElement('a');an.href=u;an.download=name;markBackup(name);document.body.appendChild(an);an.click();setTimeout(function(){document.body.removeChild(an);URL.revokeObjectURL(u);},1500);toast('Your keepsake is ready.');return;}catch(e){}
+  try{await navigator.clipboard.writeText(data);markBackup(name);toast('Copied. Paste it into a note to keep it safe.');}catch(e){toast('Saving is not available here.');}
 }
 function csvCell(v){v=String(v==null?'':v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}
 function expCsv(){
@@ -1218,7 +1441,7 @@ function clickMain(ev){
   else if(a==='newEntry')entrySheet(null,v&&v!=='undefined'?{type:v}:null);
   else if(a==='etiquette'){closeSheet();go('book');}
   else if(a==='closeSheet')closeSheet();
-  else if(a==='chip'){var g=el.parentElement;g.dataset.value=v;if(g.dataset.name==='pdir'){var pi=document.getElementById('pc-in'),po=document.getElementById('pc-out');if(pi)pi.hidden=v!=='in';if(po)po.hidden=v==='in';}g.querySelectorAll('.chip').forEach(function(c){c.classList.remove('on');});el.classList.add('on');}
+  else if(a==='chip'){var g=el.parentElement;g.dataset.value=v;if(g.dataset.name==='pdir'){var pi=document.getElementById('pc-in'),po=document.getElementById('pc-out');if(pi)pi.hidden=v!=='in';if(po)po.hidden=v==='in';var pw=document.getElementById('pc-wish');if(pw)pw.hidden=v==='in';}if(g.dataset.name==='rmode'){var rc=document.getElementById('rc-cnt');if(rc)rc.hidden=v==='back';}g.querySelectorAll('.chip').forEach(function(c){c.classList.remove('on');});el.classList.add('on');}
   else if(a==='segSel'){var g2=el.parentElement;g2.dataset.value=v;g2.querySelectorAll('button').forEach(function(c){c.classList.remove('on');});el.classList.add('on');applyType();}
   else if(a==='saveEntry')saveEntry(id);
   else if(a==='open'){if(findEntry(id))detailSheet(id);}
@@ -1269,19 +1492,39 @@ function clickMain(ev){
   else if(a==='lkdel'){if(lkWait)return;lkBuf=lkBuf.slice(0,-1);showLock();}
   else if(a==='lkforgot'){lkForgot=true;lkBuf='';showLock();}
   else if(a==='lkreset'){if(!arm(el,'lr'))return;try{localStorage.removeItem(LOCKK);}catch(x){}hideLock();toast('The seal is removed.');}
-  else if(a==='clearPlan'){if(!arm(el,'clr'))return;var mk9=curPm();S.config.plan.items=S.config.plan.items.filter(function(y){return y.mk!==mk9;});persist([],true);toast('The plan is cleared. A fresh page awaits.');render();}
+  else if(a==='clearPlan'){if(!arm(el,'clr'))return;var mk9=curPm();undoSnap=clone(S.config.plan.items);S.config.plan.items=S.config.plan.items.filter(function(y){return y.mk!==mk9;});persist([],true);toastUndo('The plan is cleared.');render();}
   else if(a==='repeatPlan'){var mk8=curPm(),pv=prevKey(mk8),L8=S.config.plan.items,n8=0,en=monthEnd(mk8);L8.filter(function(y){return y.mk===pv;}).forEach(function(y){var d=y.date?(function(){var dd=y.date.slice(8,10);var m=mk8+'-'+dd;return m>en?en:m;})():'';if(L8.some(function(z){return z.mk===mk8&&z.dir===y.dir&&z.name===y.name&&+z.amount===+y.amount;}))return;L8.push({id:rid('p'),mk:mk8,dir:y.dir,name:y.name,amount:y.amount,date:d,cat:y.cat,done:false});n8++;});if(!n8){toast('Nothing from last month to repeat.');return;}persist([],true);toast('Last month\'s plan is brought forward.');render();}
+  else if(a==='yearMonth'){pm=v;go('plan');}
+  else if(a==='repeatSheet')repeatSheet(id||'');
+  else if(a==='doRepeat'){var L=S.config.plan.items,src,tgts=[],fl,nn=0,i7;undoSnap=clone(L);
+    if(id){var it=L.filter(function(y){return y.id===id;})[0];if(!it)return;src=it.mk;fl=function(y){return y.id===id;};var k1=+gv('rcount')||1;for(i7=1;i7<=k1;i7++)tgts.push(addMonths(src+'-01',i7,1).slice(0,7));}
+    else{var md=gv('rmode')||'fwd',wh=gv('rwhat')||'all';fl=function(y){return wh==='all'||y.dir===wh;};if(md==='back'){src=prevKey(curPm());tgts=[curPm()];}else{src=curPm();var k2=+gv('rcount')||1;for(i7=1;i7<=k2;i7++)tgts.push(addMonths(src+'-01',i7,1).slice(0,7));}}
+    var base=L.filter(function(y){return y.mk===src&&fl(y);});
+    tgts.forEach(function(tm){var en=monthEnd(tm);base.forEach(function(y){if(L.some(function(z){return z.mk===tm&&z.dir===y.dir&&z.name===y.name&&+z.amount===+y.amount;}))return;var d=y.date?(function(){var m=tm+'-'+y.date.slice(8,10);return m>en?en:m;})():'';L.push({id:rid('p'),mk:tm,dir:y.dir,wish:y.wish||'',name:y.name,amount:y.amount,date:d,cat:y.cat,done:false});nn++;});});
+    if(!nn){toast(base.length?'Those months already hold these entries.':'There is nothing to repeat yet.');return;}
+    persist([],true);closeSheet();toastUndo(nn+(nn===1?' entry written into the plan.':' entries written into the plan.'));render();}
+  else if(a==='undoPlan'){if(undoSnap){S.config.plan.items=undoSnap;undoSnap=null;persist([],true);toast('Restored, as if nothing had happened.');render();}}
+  else if(a==='carryPlan'||a==='dropCarry'){var cm2=today().slice(0,7),pv2=prevKey(cm2),L2=S.config.plan.items,left=L2.filter(function(y){return y.mk===pv2&&!y.done&&!y.carried;}),en2=monthEnd(cm2),c2=0;undoSnap=clone(L2);
+    left.forEach(function(y){if(a==='carryPlan'&&!L2.some(function(z){return z.mk===cm2&&z.dir===y.dir&&z.name===y.name&&+z.amount===+y.amount;})){var d=y.date?(function(){var m=cm2+'-'+y.date.slice(8,10);return m>en2?en2:m;})():'';L2.push({id:rid('p'),mk:cm2,dir:y.dir,wish:y.wish||'',name:y.name,amount:y.amount,date:d,cat:y.cat,done:false});c2++;}y.carried=true;});
+    persist([],true);toastUndo(a==='carryPlan'?c2+(c2===1?' entry carried into the new month.':' entries carried into the new month.'):'Left behind, with no regret.');render();}
+  else if(a==='bkSnooze'){try{localStorage.setItem('gp_bk_snz',today());}catch(x){}render();}
+  else if(a==='catLetters')catSheet(v);
+  else if(a==='rpMode'){rpMode=v;render();}
+  else if(a==='rpList'){var cw=rpList===null?rpMode==='month':rpList;rpList=!cw;render();}
+  else if(a==='rpPrev'||a==='rpNext'){var dr=a==='rpPrev'?-1:1;if(rpMode==='month')rpKey=addMonths((rpKey||today().slice(0,7))+'-01',dr,1).slice(0,7);else rpYear=String(+(rpYear||today().slice(0,4))+dr);render();}
+  else if(a==='printReport')doPrintReport();
+  else if(a==='toggleFortune'){try{localStorage.setItem('gp_hide',hideF()?'0':'1');}catch(x){}render();}
   else if(a==='newPlan')planSheet();
   else if(a==='planAhead')planSheet(null,true);
   else if(a==='editPlan')planSheet(id);
   else if(a==='planItem')planDetail(id);
   else if(a==='pprev'){pm=addMonths(curPm()+'-01',-1,1).slice(0,7);render();}
   else if(a==='pnext'){pm=addMonths(curPm()+'-01',1,1).slice(0,7);render();}
-  else if(a==='savePlan'){var pn=fv('f-pname').trim(),pa=tryCalc(fv('f-pamt')),pd=gv('pdir')||'out';if(!pn){toast('Please name it.');return;}if(!pa||pa<=0){toast('Please give a sum.');return;}var pdt=fv('f-pdate'),pc=pd==='in'?gv('pcin'):gv('pcout'),L=S.config.plan.items,x1=id?L.filter(function(y){return y.id===id;})[0]:null;if(x1){x1.dir=pd;x1.name=pn;x1.amount=pa;x1.date=pdt;x1.cat=pc;}else L.push({id:rid('p'),mk:(pdt?pdt.slice(0,7):(fv('f-pmon')||curPm())),dir:pd,name:pn,amount:pa,date:pdt,cat:pc,done:false});persist([],true);closeSheet();toast('The plan is updated.');render();}
-  else if(a==='delPlan'){if(!arm(el,id))return;S.config.plan.items=S.config.plan.items.filter(function(y){return y.id!==id;});persist([],true);closeSheet();render();}
-  else if(a==='tickPlan'){var x2=S.config.plan.items.filter(function(y){return y.id===id;})[0];if(x2){x2.done=!x2.done;persist([],true);}closeSheet();render();}
+  else if(a==='savePlan'){var pn=fv('f-pname').trim(),pa=tryCalc(fv('f-pamt')),pd=gv('pdir')||'out';var pwv=pd==='out'?gv('pwish'):'',pwo=pwv?S.config.wishes.filter(function(w){return w.id===pwv;})[0]:null;if(!pn&&pwo)pn=pwo.name;if(!pn){toast('Please name it.');return;}if(!pa||pa<=0){toast('Please give a sum.');return;}var pdt=fv('f-pdate'),pc=pd==='in'?gv('pcin'):(pwo?'':gv('pcout')),L=S.config.plan.items,x1=id?L.filter(function(y){return y.id===id;})[0]:null;if(x1){x1.dir=pd;x1.wish=pwo?pwo.id:'';x1.name=pn;x1.amount=pa;x1.date=pdt;x1.cat=pc;}else L.push({id:rid('p'),mk:(pdt?pdt.slice(0,7):(fv('f-pmon')||curPm())),dir:pd,wish:pwo?pwo.id:'',name:pn,amount:pa,date:pdt,cat:pc,done:false});persist([],true);closeSheet();toast('The plan is updated.');render();}
+  else if(a==='delPlan'){if(!arm(el,id))return;undoSnap=clone(S.config.plan.items);S.config.plan.items=S.config.plan.items.filter(function(y){return y.id!==id;});persist([],true);closeSheet();toastUndo('Released from the plan.');render();}
+  else if(a==='tickPlan'){var x2=S.config.plan.items.filter(function(y){return y.id===id;})[0];if(x2){x2.done=!x2.done;var wq=wishOf(x2);if(wq){wq.saved=Math.max(0,(wq.saved||0)+(x2.done?1:-1)*(+x2.amount||0));if(x2.done&&wq.saved>=wq.goal){toast('Your wish is granted!');burst();}else toast(x2.done?'Tucked into the chest, with love.':'Coin returned to you.');}persist([],true);}closeSheet();render();}
   else if(a==='writePlan'){var x3=S.config.plan.items.filter(function(y){return y.id===id;})[0];if(!x3)return;closeSheet();setTimeout(function(){window.__planLink=id;entrySheet(null,{type:x3.dir==='in'?'income':'expense',amount:x3.amount,note:x3.name,cat:x3.cat,date:x3.date||today()});},420);}
-  else if(a==='bringDuties'){var du=planDuties(curPm()),have=S.config.plan.items,n3=0;du.forEach(function(x){var dup=have.some(function(y){return y.mk===curPm()&&y.dir==='out'&&y.name===x.name&&+y.amount===+x.amount;});if(!dup){have.push({id:rid('p'),mk:curPm(),dir:'out',name:x.name,amount:x.amount,date:x.date,cat:x.cat,done:false});n3++;}});if(!n3){toast('Your duties are already in the plan.');return;}persist([],true);toast(n3+(n3===1?' duty brought in.':' duties brought in.'));render();}
+  else if(a==='bringDuties'){undoSnap=clone(S.config.plan.items);var du=planDuties(curPm()),have=S.config.plan.items,n3=0;du.forEach(function(x){var dup=have.some(function(y){return y.mk===curPm()&&y.dir==='out'&&y.name===x.name&&+y.amount===+x.amount;});if(!dup){have.push({id:rid('p'),mk:curPm(),dir:'out',name:x.name,amount:x.amount,date:x.date,cat:x.cat,done:false});n3++;}});if(!n3){toast('Your duties are already in the plan.');return;}persist([],true);toastUndo(n3+(n3===1?' duty brought in.':' duties brought in.'));render();}
   else if(a==='doRestore')doRestore();
 }
 document.addEventListener('input',function(ev){var t=ev.target,sel=t&&t.dataset&&t.dataset.filter;if(!sel)return;var q=t.value.trim().toLowerCase();document.querySelectorAll('#main '+sel).forEach(function(el){el.style.display=(q&&el.textContent.toLowerCase().indexOf(q)<0)?'none':'';});document.querySelectorAll('#main .bsec').forEach(function(s){var any=false;s.querySelectorAll('.bookitem').forEach(function(i){if(i.style.display!=='none')any=true;});s.parentElement.style.display=any?'':'none';});});
@@ -1302,6 +1545,7 @@ document.addEventListener('visibilitychange',function(){if(document.hidden){last
 
 /* boot */
 function ready(){loaded=true;$('#loading').classList.add('off');render();}
+window.addEventListener('afterprint',function(){var pa=document.getElementById('printarea');if(pa)pa.innerHTML='';});
 async function boot(){
   if(lockOn())setTimeout(showLock,0);
   try{if(window.claude&&window.claude.use)db=await window.claude.use('db');}catch(e){db=null;}
@@ -1315,6 +1559,307 @@ async function boot(){
   setTimeout(function(){if(!loaded)fail();},10000);
   db.collection('months').onSnapshot(function(s){var m={};s.docs.forEach(function(d){var x=d.data();m[d.id]=clone((x&&x.entries)||[]);});S.months=m;gotM=true;if(!s.metadata.fromCache)fm=true;after();},fail);
   db.doc('meta/config').onSnapshot(function(s){if(s.exists)S.config=normCfg(clone(s.data()));gotC=true;if(!s.metadata.fromCache)fc=true;after();},fail);
+}
+/* The Chronicle: month and year summaries, a keepsake cover, print and save */
+var rpMode='month',rpKey=null,rpYear=null,rpList=null;
+var RP_CSS=[
+'.rp{font-family:"EB Garamond",Georgia,serif;color:#43303F;line-height:1.35;-webkit-print-color-adjust:exact;print-color-adjust:exact}',
+'.rp *{box-sizing:border-box}',
+'.rp-sheet{position:relative;padding:22px 18px 18px}',
+'.rp-h{text-align:center;margin-bottom:14px}',
+'.rp-b{font:600 .78rem "EB Garamond",serif;letter-spacing:.34em;text-transform:uppercase;color:#85707E}',
+'.rp-t0{font:400 2.7rem/1.1 "Pinyon Script","Snell Roundhand","Apple Chancery",cursive;color:#9B4A67;margin:4px 0 0}',
+'.rp-p{font:italic 500 1.05rem "Cormorant Garamond",Georgia,serif;color:#85707E}',
+'.rp-fl{display:block;width:210px;max-width:70%;height:auto;margin:6px auto}',
+'.gild{background:linear-gradient(120deg,#6E4A1C 0%,#A8782E 24%,#D9B25F 46%,#B8862F 66%,#6E4A1C 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}',
+'@supports not (-webkit-background-clip:text){.gild{color:#B58634;-webkit-text-fill-color:#B58634}}',
+'.rp-tiles{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:4px 0 8px}',
+'.rp-tile{border-radius:16px;padding:10px 12px;border:1px solid rgba(196,160,100,.45);background:#FFF9F3}',
+'.rp-tile>span{display:block;font:600 .7rem "EB Garamond",serif;letter-spacing:.16em;text-transform:uppercase;color:#85707E}',
+'.rp-tile b{display:block;font:600 1.45rem "Cormorant Garamond",Georgia,serif;font-variant-numeric:lining-nums;margin-top:2px}',
+'.rp-tile.in{background:linear-gradient(135deg,#F1F8EE,#E3F0DE)}.rp-tile.in b{color:#3F7A58}',
+'.rp-tile.out{background:linear-gradient(135deg,#FFF1F4,#FBDCE4)}.rp-tile.out b{color:#9B4A67}',
+'.rp-tile.fwd{background:linear-gradient(135deg,#F6F1FD,#E9E1F7)}',
+'.rp-tile.end{background:linear-gradient(135deg,#FFF8E4,#F8E8BE);border-color:#C9A85E}',
+'.rp-note{text-align:center;color:#85707E;font-style:italic;font-size:.95rem;margin:0 0 4px}',
+'.rp h4{display:flex;align-items:center;gap:10px;font:italic 700 1.3rem "Cormorant Garamond",Georgia,serif;color:#9B4A67;margin:18px 0 6px}',
+'.rp h4::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#D9BE86,transparent)}',
+'.rp-t{width:100%;border-collapse:collapse;font-size:.98rem}',
+'.rp-t th{font:600 .68rem "EB Garamond",serif;letter-spacing:.14em;text-transform:uppercase;color:#85707E;text-align:left;padding:4px 4px;border-bottom:1px solid #D9BE86}',
+'.rp-t td{padding:6px 4px;border-bottom:1px dotted #D8C9CC;vertical-align:top}',
+'.rp-t .r{text-align:right}.rp-t .nw{white-space:nowrap}.rp-t small{color:#85707E;font-style:italic}',
+'.rp-t tr{break-inside:avoid}',
+'.rp-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:baseline;background:var(--c,#C9A85E)}',
+'.rp-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(40px,1fr) 38px auto;align-items:center;gap:10px;padding:6px 2px;border-bottom:1px dotted #D8C9CC;break-inside:avoid}',
+'.rp-row .n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}',
+'.rp-row .bar{height:8px;border-radius:99px;background:#F1E7E3;overflow:hidden}.rp-row .bar i{display:block;height:100%;border-radius:99px;background:var(--c,#C9A85E)}',
+'.rp-row .p{font-style:italic;color:#85707E;text-align:right;font-size:.9rem}.rp-row .v{font-weight:600;text-align:right;white-space:nowrap}',
+'.rp-tag{display:inline-block;font:600 .62rem "EB Garamond",serif;letter-spacing:.1em;text-transform:uppercase;padding:1px 7px;border-radius:99px;border:1px solid currentColor;margin-right:5px;vertical-align:1px}',
+'.tg-income{color:#3F7A58}.tg-expense{color:#9B4A67}.tg-transfer{color:#85707E}.tg-receivable{color:#6F5AA6}.tg-payable{color:#B85C42}.tg-card{color:#4577A0}',
+'.rp-n{color:#85707E;font-style:italic}',
+'.rp-f{text-align:center;margin-top:16px;font-style:italic;color:#85707E;font-size:.9rem}',
+/* the cover */
+'.rp-cover{position:relative;text-align:center;padding:34px 22px 30px;margin-bottom:14px;border:1.5px solid #C9A85E;border-radius:6px;background:radial-gradient(circle at 50% 18%,#FFF6E6,#FFFCF6 60%);outline:1px solid rgba(201,168,94,.55);outline-offset:-9px}',
+'.rp-cover .cn{position:absolute;width:54px;height:54px}.rp-cover .cn.a{top:6px;left:6px}.rp-cover .cn.b{top:6px;right:6px;transform:scaleX(-1)}.rp-cover .cn.c{bottom:6px;left:6px;transform:scaleY(-1)}.rp-cover .cn.d{bottom:6px;right:6px;transform:scale(-1,-1)}',
+'.rp-cover .bloom{width:92px;height:92px;margin:10px auto 4px;display:block}',
+'.rp-cover .cs{font:400 2.4rem/1.1 "Pinyon Script","Snell Roundhand","Apple Chancery",cursive;color:#9B4A67;margin-top:4px}',
+'.rp-cover .cyr{font:700 5.4rem/1 "Cormorant Garamond",Georgia,serif;letter-spacing:.04em;margin:2px 0 4px}',
+'.rp-cover .st{display:grid;gap:12px;margin:14px auto 6px;max-width:420px}',
+'.rp-cover .st div>span{display:block;font:600 .7rem "EB Garamond",serif;letter-spacing:.24em;text-transform:uppercase;color:#85707E}',
+'.rp-cover .st div b{display:block;font:700 2.1rem/1.15 "Cormorant Garamond",Georgia,serif;font-variant-numeric:lining-nums}',
+'.rp-cover .st .big b{font-size:2.8rem}',
+'.rp-cover .glance{font-style:italic;color:#85707E;font-size:1rem;margin:10px 18px 0;line-height:1.45}',
+'.rp-cover .kept{margin-top:16px;font:400 1.5rem "Pinyon Script","Snell Roundhand","Apple Chancery",cursive;color:#9B4A67}',
+'.rpage{background:#FFFCF6!important;color:#43303F!important}',
+'.rpage .rp-sheet{padding:10px 4px 6px}',
+'@media print{.rp-cover{break-after:page;min-height:250mm;display:flex;flex-direction:column;justify-content:center}.gild{background:none!important;-webkit-text-fill-color:#9A6F28!important;color:#9A6F28!important}}'
+].join('\n');
+(function(){try{var s=document.createElement('style');s.id='rpcss';s.textContent=RP_CSS;document.head.appendChild(s);}catch(e){}})();
+
+function rpFlourish(){
+  var pet='',i;for(i=0;i<5;i++){var a=i*72-90,x=120+7*Math.cos(a*Math.PI/180),y=12+7*Math.sin(a*Math.PI/180);pet+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="4" fill="#F6C3D2" stroke="#D88CA5" stroke-width=".6"/>';}
+  return '<svg class="rp-fl" viewBox="0 0 240 24" aria-hidden="true"><path d="M8 12h88M144 12h88" stroke="#C9A85E" stroke-width="1" fill="none"/><path d="M96 12c5-8 13-8 18 0M144 12c-5-8-13-8-18 0M96 12c5 8 13 8 18 0M144 12c-5 8-13 8-18 0" stroke="#C9A85E" stroke-width=".9" fill="none"/>'+pet+'<circle cx="120" cy="12" r="3.2" fill="#F8E2A8" stroke="#C9A85E" stroke-width=".7"/><circle cx="8" cy="12" r="1.8" fill="#C9A85E"/><circle cx="232" cy="12" r="1.8" fill="#C9A85E"/></svg>';
+}
+function rpCorner(cls){return '<svg class="cn '+cls+'" viewBox="0 0 54 54" aria-hidden="true"><path d="M3 51C3 22 22 3 51 3" fill="none" stroke="#C9A85E" stroke-width="1.4"/><path d="M3 38C3 20 20 3 38 3" fill="none" stroke="#C9A85E" stroke-width=".9" stroke-opacity=".75"/><path d="M12 12c4-1 8 1 9 5-4 1-8-1-9-5z" fill="#CFE0C9" stroke="#9DB896" stroke-width=".6"/><circle cx="9" cy="9" r="2.6" fill="#E8C777"/><circle cx="24" cy="6" r="1.4" fill="#C9A85E"/><circle cx="6" cy="24" r="1.4" fill="#C9A85E"/></svg>';}
+function rpBloom(){
+  var s='<svg class="bloom" viewBox="0 0 100 100" aria-hidden="true">',i;
+  var L=[[6,27,17,'#F8CBD8',0],[6,35,14,'#F1A9BF',30],[5,42,10,'#E78AA8',0]];
+  L.forEach(function(l){for(i=0;i<l[0];i++)s+='<ellipse cx="50" cy="'+l[1]+'" rx="'+l[2]+'" ry="'+(l[2]*1.45)+'" transform="rotate('+(i*360/l[0]+l[4])+' 50 50)" fill="'+l[3]+'" stroke="#fff" stroke-opacity=".7" stroke-width=".8"/>';});
+  return s+'<circle cx="50" cy="50" r="7" fill="#F8DE98" stroke="#C9A85E" stroke-width=".6"/></svg>';
+}
+function rpIncCats(arr){var m={};arr.forEach(function(x){if(x.type==='income'){var k=x.cat||'Sundries';m[k]=(m[k]||0)+x.amount;}});return Object.keys(m).map(function(k){return [k,m[k]];}).sort(function(a,b){return b[1]-a[1];});}
+function rpTable(head,rows){return '<table class="rp-t"><thead><tr>'+head.map(function(h,i){return '<th'+(i?' class="r"':'')+'>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+rows.join('')+'</tbody></table>';}
+function rpCats(list,tot){
+  if(!list.length)return '<p class="rp-n">None in this period.</p>';
+  return list.map(function(x){var ci=catInfo(x[0]),pc=tot>0?x[1]/tot*100:0;return '<div class="rp-row" style="--c:'+ci.color+'"><span class="n"><i class="rp-dot"></i>'+esc(x[0])+'</span><span class="bar"><i style="width:'+Math.max(3,Math.round(pc))+'%"></i></span><span class="p">'+Math.round(pc)+'%</span><span class="v">'+money(x[1])+'</span></div>';}).join('');
+}
+function rpLetters(arr){
+  var L=arr.slice().sort(function(a,b){return a.date.localeCompare(b.date)||(a.ts||0)-(b.ts||0);});
+  if(!L.length)return '<p class="rp-n">No letters were written in this period.</p>';
+  return rpTable(['Day','Letter','Purse','Sum'],L.map(function(x){var t=x.type,sg=t==='income'?'+':(t==='expense'||t==='receivable')?'&minus;':'',ttl=x.note||x.cat||typeLabel(t),sub=(x.cat&&x.note?esc(x.cat):'')+(x.status==='open'?(x.cat&&x.note?' · ':'')+'open':x.status==='done'?(x.cat&&x.note?' · ':'')+'settled':'');
+    return '<tr><td class="nw">'+shortDate(x.date)+'</td><td><b>'+esc(ttl)+'</b><br><span class="rp-tag tg-'+t+'">'+esc(typeLabel(t))+'</span><small>'+sub+'</small></td><td>'+esc(pName(x.purse))+(t==='transfer'?' to '+esc(pName(x.to)):'')+'</td><td class="r nw">'+sg+'<span class="cur">&#8369;</span>'+nf(x.amount)+'</td></tr>';}));
+}
+function rpFigures(mode,key){
+  var months=mode==='month'?[key]:[1,2,3,4,5,6,7,8,9,10,11,12].map(function(m){return key+'-'+('0'+m).slice(-2);});
+  var arr=[],rec=0,exp=0,ms=months.map(function(k){return {k:k,s:monthStats(k)};}),ecat={};
+  months.forEach(function(k){arr=arr.concat(S.months[k]||[]);});
+  ms.forEach(function(x){rec+=x.s.inc;exp+=x.s.exp;x.s.cats.forEach(function(c){ecat[c[0]]=(ecat[c[0]]||0)+c[1];});});
+  var st=ms[0].s.start,en=ms[ms.length-1].s.end,ecats=Object.keys(ecat).map(function(k){return [k,ecat[k]];}).sort(function(a,b){return b[1]-a[1];});
+  return {months:months,arr:arr,ms:ms,rec:rec,exp:exp,st:st,en:en,other:en-st-(rec-exp),ecats:ecats,icats:rpIncCats(arr)};
+}
+function coverHTML(key){
+  var F=rpFigures('year',key),busy=F.ms.slice().sort(function(a,b){return b.s.exp-a.s.exp;})[0],gl=[];
+  gl.push(F.arr.length+(F.arr.length===1?' letter':' letters')+' written');
+  if(F.ecats.length)gl.push('most spent upon '+F.ecats[0][0]);
+  if(busy&&busy.s.exp>0)gl.push(monthName(busy.k).split(' ')[0]+' was the fullest month');
+  return '<div class="rp-cover">'+rpCorner('a')+rpCorner('b')+rpCorner('c')+rpCorner('d')+rpBloom()
+   +'<div class="rp-b">The Dancing Letters</div><div class="cs">A Year of Letters</div><div class="cyr gild">'+key+'</div>'+rpFlourish()
+   +'<div class="st"><div><span>Arrived</span><b class="gild">'+money(F.rec)+'</b></div><div><span>Departed</span><b class="gild">'+money(F.exp)+'</b></div><div class="big"><span>Fortune at the close</span><b class="gild">'+money(F.en)+'</b></div></div>'
+   +'<p class="glance">'+gl.join(' &middot; ')+'</p><div class="kept">kept with care</div></div>';
+}
+function reportHTML(mode,key,withList){
+  var F=rpFigures(mode,key),title=mode==='month'?monthName(key):key;
+  var h='<div class="rp">'+(mode==='year'?coverHTML(key):'')+'<div class="rp-sheet"><div class="rp-h"><div class="rp-b">The Dancing Letters</div><div class="rp-t0">'+title+'</div><div class="rp-p">'+(mode==='month'?'A month of letters':'A year of letters')+'</div>'+rpFlourish()+'</div>';
+  h+='<div class="rp-tiles"><div class="rp-tile fwd"><span>Brought forward</span><b>'+money(F.st)+'</b></div><div class="rp-tile in"><span>Arrived</span><b>'+money(F.rec)+'</b></div><div class="rp-tile out"><span>Departed</span><b>'+money(F.exp)+'</b></div><div class="rp-tile end"><span>Fortune at the close</span><b class="gild">'+money(F.en)+'</b></div></div>';
+  if(Math.abs(F.other)>=.005)h+='<p class="rp-note">Lent Letters, debts and carried coin moved '+money(F.other)+' besides.</p>';
+  if(mode==='year')h+='<h4>Month by month</h4>'+rpTable(['Month','Brought forward','Arrived','Departed','At the close'],F.ms.map(function(x){return '<tr><td>'+monthName(x.k).split(' ')[0]+'</td><td class="r nw">'+money(x.s.start)+'</td><td class="r nw">'+money(x.s.inc)+'</td><td class="r nw">'+money(x.s.exp)+'</td><td class="r nw">'+money(x.s.end)+'</td></tr>';}));
+  var pr=PURSES.map(function(p){var o=summary(F.months[0]).op[p.id],cl=summary(nextKey(F.months[F.months.length-1])).op[p.id],fi=0,fo=0;F.months.forEach(function(k){var s=summary(k);fi+=s.fin[p.id];fo+=s.fout[p.id];});return '<tr><td><i class="rp-dot" style="--c:'+p.color+'"></i>'+esc(p.name)+'</td><td class="r nw">'+money(o)+'</td><td class="r nw">'+money(fi)+'</td><td class="r nw">'+money(fo)+'</td><td class="r nw">'+money(cl)+'</td></tr>';});
+  h+='<h4>The four purses</h4>'+rpTable(['Purse','Opening','Coin in','Coin out','Closing'],pr);
+  h+='<h4>Where it wandered</h4>'+rpCats(F.ecats,F.exp);
+  h+='<h4>What arrived</h4>'+rpCats(F.icats,F.rec);
+  if(withList)h+='<h4>Every letter</h4>'+rpLetters(F.arr);
+  return h+'<div class="rp-f">Written with care in the Dancing Letters</div></div></div>';
+}
+function vReport(){
+  if(!rpKey)rpKey=today().slice(0,7);if(!rpYear)rpYear=today().slice(0,4);
+  var mode=rpMode,key=mode==='month'?rpKey:rpYear,wl=rpList===null?mode==='month':rpList;
+  var h='<div class="chips" style="margin-bottom:8px"><button class="chip'+(mode==='month'?' on':'')+'" data-act="rpMode" data-v="month">A month</button><button class="chip'+(mode==='year'?' on':'')+'" data-act="rpMode" data-v="year">A year</button><button class="chip'+(wl?' on':'')+'" data-act="rpList">Every letter</button></div>';
+  h+=page('<div class="mnav"><button data-act="rpPrev">Earlier</button><div class="num">'+(mode==='month'?monthName(key):key)+'</div><button data-act="rpNext">Later</button></div><div class="btnrow" style="margin:6px 0 0"><button class="btn gold" data-act="printReport">Save as a PDF</button></div><p class="hint" style="text-align:center;margin:8px 0 0">A real PDF is drawn for you. Choose where to keep it, such as Save to Files.</p>');
+  return h+page(reportHTML(mode,key,wl),'rpage');
+}
+/* A real PDF, drawn by hand, so nothing needs printing */
+var PW={"R":[250,333,408,500,500,833,778,180,333,333,500,564,250,333,250,278,500,500,500,500,500,500,500,500,500,500,278,278,564,564,564,444,921,722,667,667,722,611,556,722,722,333,389,722,611,889,722,722,556,722,667,556,611,722,722,944,722,722,611,333,278,333,469,500,333,444,500,444,500,444,333,500,500,278,278,500,278,778,500,500,500,500,333,389,278,500,500,722,500,500,444,480,200,480,541,761,500,0,333,500,444,1000,500,500,333,1000,556,333,889,0,611,0,0,333,333,444,444,350,500,1000,333,980,389,333,722,0,444,722,250,333,500,500,500,500,200,500,333,760,276,500,564,333,760,333,400,564,300,300,333,500,453,250,333,300,310,500,750,750,750,444,722,722,722,722,722,722,889,667,611,611,611,611,333,333,333,333,722,722,722,722,722,722,722,564,722,722,722,722,722,722,556,500,444,444,444,444,444,444,667,444,444,444,444,444,278,278,278,278,500,500,500,500,500,500,500,564,500,500,500,500,500,500,500,500],"B":[250,333,555,500,500,1000,833,278,333,333,500,570,250,333,250,278,500,500,500,500,500,500,500,500,500,500,333,333,570,570,570,500,930,722,667,722,722,667,611,778,778,389,500,778,667,944,722,778,611,778,722,556,667,722,722,1000,722,722,667,333,278,333,581,500,333,500,556,444,556,444,333,500,556,278,333,556,278,833,556,500,556,556,444,389,333,556,500,722,500,500,444,394,220,394,520,761,500,0,333,500,500,1000,500,500,333,1000,556,333,1000,0,667,0,0,333,333,500,500,350,500,1000,333,1000,389,333,722,0,444,722,250,333,500,500,500,500,220,500,333,747,300,500,570,333,747,333,400,570,300,300,333,556,540,250,333,300,330,500,750,750,750,500,722,722,722,722,722,722,1000,722,667,667,667,667,389,389,389,389,722,722,778,778,778,778,778,570,778,722,722,722,722,722,611,556,500,500,500,500,500,500,722,444,444,444,444,444,278,278,278,278,500,556,500,500,500,500,500,570,500,556,556,556,556,500,556,500],"I":[250,333,420,500,500,833,778,214,333,333,500,675,250,333,250,278,500,500,500,500,500,500,500,500,500,500,333,333,675,675,675,500,920,611,611,667,722,611,611,722,722,333,444,667,556,833,667,722,611,722,611,500,556,722,611,833,611,556,556,389,278,389,422,500,333,500,500,444,500,444,278,500,500,278,278,444,278,722,500,500,500,500,389,389,278,500,444,667,444,444,389,400,275,400,541,761,500,0,333,500,556,889,500,500,333,1000,500,333,944,0,556,0,0,333,333,556,556,350,500,889,333,980,389,333,667,0,389,556,250,389,500,500,500,500,275,500,333,760,276,500,675,333,760,333,400,675,300,300,333,500,523,250,333,300,310,500,750,750,750,500,611,611,611,611,611,611,889,667,611,611,611,611,333,333,333,333,722,667,722,722,722,722,722,675,722,722,722,722,722,556,611,500,500,500,500,500,500,500,667,444,444,444,444,444,278,278,278,278,500,500,500,500,500,500,500,675,500,500,500,500,500,444,500,444],"X":[250,389,555,500,500,833,778,278,333,333,500,570,250,333,250,278,500,500,500,500,500,500,500,500,500,500,333,333,570,570,570,500,832,667,667,667,722,667,667,722,778,389,500,667,611,889,722,722,611,722,667,556,611,722,667,889,667,611,611,333,278,333,570,500,333,500,500,444,500,444,333,500,556,278,278,500,278,778,556,500,500,500,389,389,278,556,444,667,500,444,389,348,220,348,570,761,500,0,333,500,500,1000,500,500,333,1000,556,333,944,0,611,0,0,333,333,500,500,350,500,1000,333,1000,389,333,722,0,389,611,250,389,500,500,500,500,220,500,333,747,266,500,606,333,747,333,400,570,300,300,333,576,500,250,333,300,300,500,750,750,750,500,667,667,667,667,667,667,944,667,667,667,667,667,389,389,389,389,722,722,722,722,722,722,722,570,722,722,722,722,722,611,611,500,500,500,500,500,500,500,722,444,444,444,444,444,278,278,278,278,500,556,500,500,500,500,500,570,500,556,556,556,556,444,500,444]};
+var PDFM={8217:146,8216:145,8220:147,8221:148,8211:150,8212:151,8226:149,8230:133};
+function pdfCode(c){if(PDFM[c])return PDFM[c];if(c===8369)return 80;if(c<32)return 32;if(c>=127&&c<160)return 63;if(c>255)return 63;return c;}
+function pdfW(s,f,sz,tc){s=String(s==null?'':s);var w=0,i,c;for(i=0;i<s.length;i++){c=pdfCode(s.charCodeAt(i));w+=(PW[f][c-32]||0)*sz/1000+(tc||0);}return w;}
+function pdfStr(s){s=String(s==null?'':s);var o='',i,c;for(i=0;i<s.length;i++){c=pdfCode(s.charCodeAt(i));if(c===40||c===41||c===92)o+='\\'+String.fromCharCode(c);else if(c<32||c>126)o+='\\'+('00'+c.toString(8)).slice(-3);else o+=String.fromCharCode(c);}return o;}
+function pdfFit(s,f,sz,maxW,tc){s=String(s==null?'':s);if(pdfW(s,f,sz,tc)<=maxW)return s;while(s.length>1&&pdfW(s+'…',f,sz,tc)>maxW)s=s.slice(0,-1);return s+'…';}
+function pdfWrap(s,f,sz,maxW){var words=String(s).split(/\s+/),lines=[],cur='';words.forEach(function(w){var t=cur?cur+' '+w:w;if(pdfW(t,f,sz)>maxW&&cur){lines.push(cur);cur=w;}else cur=t;});if(cur)lines.push(cur);return lines;}
+function pdfRGB(h){h=h.replace('#','');return [0,2,4].map(function(i){return (parseInt(h.substr(i,2),16)/255).toFixed(3);}).join(' ');}
+var PFN={R:'F1',B:'F2',I:'F3',X:'F4'};
+function n2(v){return (Math.round(v*100)/100).toString();}
+
+function pdfDoc(title){
+  var P={W:595,H:842,L:40,R:555,pages:[],o:null,y:46,flip:true,title:title};
+  var K=0.5523;
+  P.Y=function(y,h){return P.flip?P.H-y-(h||0):y;};
+  P.add=function(s){P.o.push(s);};
+  P.page=function(){P.o=[];P.pages.push(P.o);P.y=46;P.flip=true;};
+  P.ensure=function(h,again){if(P.y+h>P.H-52){P.page();if(again)again();return true;}return false;};
+  P.paint=function(fill,stroke,lw,dash){
+    var op=fill&&stroke?'B':fill?'f':'S';
+    return op;
+  };
+  P.style=function(fill,stroke,lw,dash){
+    if(fill)P.add(pdfRGB(fill)+' rg');
+    if(stroke){P.add(pdfRGB(stroke)+' RG');P.add(n2(lw||.6)+' w');}
+    P.add(dash?'['+dash+'] 0 d':'[] 0 d');
+    return fill&&stroke?'B':fill?'f':'S';
+  };
+  P.rect=function(x,y,w,h,fill,stroke,lw){var op=P.style(fill,stroke,lw);P.add(n2(x)+' '+n2(P.Y(y,h))+' '+n2(w)+' '+n2(h)+' re '+op);};
+  P.rrect=function(x,y,w,h,r,fill,stroke,lw){
+    var op=P.style(fill,stroke,lw),yb=P.Y(y,h),x2=x+w,y2=yb+h,k=r*(1-K);
+    P.add(n2(x+r)+' '+n2(yb)+' m '+n2(x2-r)+' '+n2(yb)+' l '+n2(x2-k)+' '+n2(yb)+' '+n2(x2)+' '+n2(yb+k)+' '+n2(x2)+' '+n2(yb+r)+' c '
+      +n2(x2)+' '+n2(y2-r)+' l '+n2(x2)+' '+n2(y2-k)+' '+n2(x2-k)+' '+n2(y2)+' '+n2(x2-r)+' '+n2(y2)+' c '
+      +n2(x+r)+' '+n2(y2)+' l '+n2(x+k)+' '+n2(y2)+' '+n2(x)+' '+n2(y2-k)+' '+n2(x)+' '+n2(y2-r)+' c '
+      +n2(x)+' '+n2(yb+r)+' l '+n2(x)+' '+n2(yb+k)+' '+n2(x+k)+' '+n2(yb)+' '+n2(x+r)+' '+n2(yb)+' c h '+op);
+  };
+  P.ellipse=function(cx,cy,rx,ry,fill,stroke,lw){
+    var op=P.style(fill,stroke,lw),y=P.Y(cy),kx=rx*K,ky=ry*K;
+    P.add(n2(cx+rx)+' '+n2(y)+' m '+n2(cx+rx)+' '+n2(y+ky)+' '+n2(cx+kx)+' '+n2(y+ry)+' '+n2(cx)+' '+n2(y+ry)+' c '
+      +n2(cx-kx)+' '+n2(y+ry)+' '+n2(cx-rx)+' '+n2(y+ky)+' '+n2(cx-rx)+' '+n2(y)+' c '
+      +n2(cx-rx)+' '+n2(y-ky)+' '+n2(cx-kx)+' '+n2(y-ry)+' '+n2(cx)+' '+n2(y-ry)+' c '
+      +n2(cx+kx)+' '+n2(y-ry)+' '+n2(cx+rx)+' '+n2(y-ky)+' '+n2(cx+rx)+' '+n2(y)+' c h '+op);
+  };
+  P.line=function(x1,y1,x2,y2,col,lw,dash){P.style(null,col,lw,dash);P.add(n2(x1)+' '+n2(P.Y(y1))+' m '+n2(x2)+' '+n2(P.Y(y2))+' l S');};
+  P.path=function(d,col,lw){P.style(null,col,lw);P.add(d+' S');};
+  P.text=function(x,y,s,f,sz,col,o){
+    o=o||{};var tc=o.tc||0,w=pdfW(s,f,sz,tc);if(o.align==='r')x-=w;else if(o.align==='c')x-=w/2;
+    P.add('BT /'+PFN[f]+' '+n2(sz)+' Tf '+pdfRGB(col)+' rg '+n2(tc)+' Tc '+n2(x)+' '+n2(P.Y(y))+' Td ('+pdfStr(s)+') Tj ET');
+    return w;
+  };
+  /* money with a drawn peso mark, which the standard fonts lack */
+  P.money=function(x,y,n,f,sz,col,align,o){
+    var neg=n<0,d=nf(n),ps=sz*.86,pw=PW.R['P'.charCodeAt(0)-32]*ps/1000,gap=sz*.07,sgn=neg?'-':(o&&o.plus?'+':''),sw=sgn?pdfW(sgn,f,sz)+sz*.1:0,dw=pdfW(d,f,sz),tot=sw+pw+gap+dw;
+    var x0=align==='r'?x-tot:align==='c'?x-tot/2:x;
+    if(sgn)P.text(x0,y,sgn,f,sz,col);
+    var px=x0+sw;P.text(px,y,'P','R',ps,col);
+    P.line(px-ps*.02,y-ps*.27,px+pw*.92,y-ps*.27,col,Math.max(.4,ps*.055));P.line(px-ps*.02,y-ps*.42,px+pw*.92,y-ps*.42,col,Math.max(.4,ps*.055));
+    P.text(px+pw+gap,y,d,f,sz,col);
+    return tot;
+  };
+  P.moneyW=function(n,f,sz){var ps=sz*.86;return (n<0?pdfW('-',f,sz)+sz*.1:0)+PW.R['P'.charCodeAt(0)-32]*ps/1000+sz*.07+pdfW(nf(n),f,sz);};
+  P.xf=function(a,b,c,d,e,f){P.add('q '+a+' '+b+' '+c+' '+d+' '+n2(e)+' '+n2(f)+' cm');P.flip=false;};
+  P.xe=function(){P.add('Q');P.flip=true;};
+  P.page();
+  return P;
+}
+function pdfCorner(P,x,y,sx,sy){
+  P.xf(sx,0,0,sy,x,P.H-y);
+  /* local origin at the corner, x inward, y inward (down when sy=-1 flips) */
+  P.path('3 -51 m 3 -22 22 -3 51 -3 c'.replace('3 -51 m 3 -22 22 -3 51 -3 c','3 -51 m 3 -22 22 -3 51 -3 c'),'#C9A85E',1.1);
+  P.path('3 -38 m 3 -20 20 -3 38 -3 c','#C9A85E',.7);
+  P.ellipse(9,-9,2.6,2.6,'#E8C777',null);
+  P.ellipse(24,-6,1.3,1.3,'#C9A85E',null);P.ellipse(6,-24,1.3,1.3,'#C9A85E',null);
+  P.ellipse(16,-15,5,2.6,'#CFE0C9','#9DB896',.5);
+  P.xe();
+}
+function pdfBloom(P,cx,cy,s){
+  var L=[[6,27,17,'#F8CBD8',0],[6,35,14,'#F1A9BF',30],[5,42,10,'#E78AA8',0]],i;
+  P.xf(1,0,0,1,cx,P.H-cy);
+  L.forEach(function(l){var off=(50-l[1])*s,rx=l[2]*s,ry=l[2]*1.45*s;for(i=0;i<l[0];i++){var a=(i*360/l[0]+l[4])*Math.PI/180,c=Math.cos(a),sn=Math.sin(a);P.add('q '+c.toFixed(4)+' '+sn.toFixed(4)+' '+(-sn).toFixed(4)+' '+c.toFixed(4)+' 0 0 cm');P.ellipse(0,off,rx,ry,l[3],'#FFFFFF',.7);P.add('Q');}});
+  P.ellipse(0,0,7*s,7*s,'#F8DE98','#C9A85E',.6);
+  P.xe();
+}
+function pdfFlourish(P,cx,y,half){
+  P.line(cx-half,y,cx-14,y,'#C9A85E',.8);P.line(cx+14,y,cx+half,y,'#C9A85E',.8);
+  var i;for(i=0;i<5;i++){var a=(i*72-90)*Math.PI/180;P.ellipse(cx+6*Math.cos(a),y+6*Math.sin(a),3.2,3.2,'#F6C3D2','#D88CA5',.5);}
+  P.ellipse(cx,y,2.4,2.4,'#F8E2A8','#C9A85E',.5);P.ellipse(cx-half,y,1.6,1.6,'#C9A85E',null);P.ellipse(cx+half,y,1.6,1.6,'#C9A85E',null);
+}
+var PDF_TAG={income:'#3F7A58',expense:'#9B4A67',transfer:'#85707E',receivable:'#6F5AA6',payable:'#B85C42',card:'#4577A0'};
+function pdfBytes(P){
+  var n=P.pages.length,out='',offs=[],objs=[];
+  function obj(s){objs.push(s);}
+  obj('<< /Type /Catalog /Pages 2 0 R >>');
+  var kids=[],i;for(i=0;i<n;i++)kids.push((8+2*i)+' 0 R');
+  obj('<< /Type /Pages /Kids ['+kids.join(' ')+'] /Count '+n+' >>');
+  ['Times-Roman','Times-Bold','Times-Italic','Times-BoldItalic'].forEach(function(f){obj('<< /Type /Font /Subtype /Type1 /BaseFont /'+f+' /Encoding /WinAnsiEncoding >>');});
+  obj('<< /Title ('+pdfStr(P.title)+') /Creator (The Dancing Letters) >>');
+  for(i=0;i<n;i++){var c=P.pages[i].join('\n');
+    obj('<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents '+(9+2*i)+' 0 R >>');
+    obj('<< /Length '+c.length+' >>\nstream\n'+c+'\nendstream');}
+  out='%PDF-1.4\n';
+  objs.forEach(function(s,k){offs.push(out.length);out+=(k+1)+' 0 obj\n'+s+'\nendobj\n';});
+  var xr=out.length;out+='xref\n0 '+(objs.length+1)+'\n0000000000 65535 f \n';
+  offs.forEach(function(o){out+=('0000000000'+o).slice(-10)+' 00000 n \n';});
+  out+='trailer\n<< /Size '+(objs.length+1)+' /Root 1 0 R /Info 7 0 R >>\nstartxref\n'+xr+'\n%%EOF';
+  var b=new Uint8Array(out.length);for(i=0;i<out.length;i++)b[i]=out.charCodeAt(i)&255;
+  return b;
+}
+function chroniclePdf(mode,key,withList){
+  var F=rpFigures(mode,key),title=mode==='month'?monthName(key):key,P=pdfDoc('The Dancing Letters, '+title),L=P.L,R=P.R,W=R-L,GOLD='#A8782E',WINE='#9B4A67',GREY='#85707E',INK='#43303F',cx=P.W/2;
+  if(mode==='year'){
+    var busy=F.ms.slice().sort(function(a,b){return b.s.exp-a.s.exp;})[0],gl=[];
+    gl.push(F.arr.length+(F.arr.length===1?' letter':' letters')+' written');if(F.ecats.length)gl.push('most spent upon '+F.ecats[0][0]);if(busy&&busy.s.exp>0)gl.push(monthName(busy.k).split(' ')[0]+' was the fullest month');
+    P.rect(28,28,539,786,'#FFFCF6','#C9A85E',1.4);P.rect(38,38,519,766,null,'#C9A85E',.5);
+    pdfCorner(P,44,44,1,1);pdfCorner(P,P.W-44,44,-1,1);pdfCorner(P,44,P.H-44,1,-1);pdfCorner(P,P.W-44,P.H-44,-1,-1);
+    pdfBloom(P,cx,170,1.15);
+    P.text(cx,262,'THE DANCING LETTERS','B',9,GREY,{align:'c',tc:3.6});
+    P.text(cx,312,'A Year of Letters','I',36,WINE,{align:'c'});
+    P.text(cx,402,key,'B',92,GOLD,{align:'c'});
+    pdfFlourish(P,cx,436,110);
+    P.text(cx,486,'ARRIVED','B',8,GREY,{align:'c',tc:2.6});P.money(cx,520,F.rec,'B',30,GOLD,'c');
+    P.text(cx,562,'DEPARTED','B',8,GREY,{align:'c',tc:2.6});P.money(cx,596,F.exp,'B',30,GOLD,'c');
+    P.text(cx,640,'FORTUNE AT THE CLOSE','B',8,GREY,{align:'c',tc:2.6});P.money(cx,684,F.en,'B',40,GOLD,'c');
+    var gy=724;pdfWrap(gl.join('  ·  '),'I',12,400).forEach(function(t){P.text(cx,gy,t,'I',12,GREY,{align:'c'});gy+=16;});
+    P.text(cx,782,'kept with care','I',20,WINE,{align:'c'});
+    P.page();
+  }
+  /* header */
+  P.text(cx,P.y+8,'THE DANCING LETTERS','B',8,GREY,{align:'c',tc:3.2});
+  P.text(cx,P.y+46,title,'I',34,WINE,{align:'c'});
+  P.text(cx,P.y+66,mode==='month'?'A month of letters':'A year of letters','I',12.5,GREY,{align:'c'});
+  pdfFlourish(P,cx,P.y+84,96);P.y+=106;
+  /* tiles */
+  var tw=(W-10)/2,th=50,T=[['BROUGHT FORWARD',F.st,'#F0EAFB','#D6CBEC',INK],['ARRIVED',F.rec,'#E9F4E6','#C9E0C4','#3F7A58'],['DEPARTED',F.exp,'#FCE6EC','#EFC3CF',WINE],['FORTUNE AT THE CLOSE',F.en,'#FBF0D2','#C9A85E',GOLD]],i;
+  T.forEach(function(t,k){var x=L+(k%2)*(tw+10),y=P.y+Math.floor(k/2)*(th+8);P.rrect(x,y,tw,th,10,t[2],t[3],.7);P.text(x+12,y+17,t[0],'B',6.8,GREY,{tc:1.5});P.money(x+12,y+40,t[1],'B',19,t[4],'l');});
+  P.y+=th*2+8+10;
+  if(Math.abs(F.other)>=.005){var ln='Lent Letters, debts and carried coin moved ',lw=pdfW(ln,'I',9.5)+P.moneyW(F.other,'I',9.5)+pdfW(' besides.','I',9.5),sx=cx-lw/2;P.text(sx,P.y+4,ln,'I',9.5,GREY);var mw=P.money(sx+pdfW(ln,'I',9.5),P.y+4,F.other,'I',9.5,GREY,'l');P.text(sx+pdfW(ln,'I',9.5)+mw,P.y+4,' besides.','I',9.5,GREY);P.y+=16;}
+  function head(t){P.ensure(60);P.y+=14;var w=P.text(L,P.y+10,t,'X',15,WINE);P.line(L+w+10,P.y+6,R,P.y+6,'#D9BE86',.6);P.y+=22;}
+  function thead(cols){cols.forEach(function(c){P.text(c[0],P.y+8,c[1],'B',6.6,GREY,{align:c[2],tc:1.2});});P.line(L,P.y+13,R,P.y+13,'#D9BE86',.7);P.y+=18;}
+  var RC=[300,385,470,555];
+  if(mode==='year'){head('Month by month');thead([[L,'MONTH','l'],[RC[0],'BROUGHT FORWARD','r'],[RC[1],'ARRIVED','r'],[RC[2],'DEPARTED','r'],[RC[3],'AT THE CLOSE','r']]);
+    F.ms.forEach(function(x){P.ensure(20);P.text(L+2,P.y+11,monthName(x.k).split(' ')[0],'R',10,INK);P.money(RC[0],P.y+11,x.s.start,'R',9.5,INK,'r');P.money(RC[1],P.y+11,x.s.inc,'R',9.5,INK,'r');P.money(RC[2],P.y+11,x.s.exp,'R',9.5,INK,'r');P.money(RC[3],P.y+11,x.s.end,'R',9.5,INK,'r');P.line(L,P.y+17,R,P.y+17,'#D8C9CC',.4,'1 2');P.y+=19;});}
+  head('The four purses');thead([[L,'PURSE','l'],[RC[0],'OPENING','r'],[RC[1],'COIN IN','r'],[RC[2],'COIN OUT','r'],[RC[3],'CLOSING','r']]);
+  PURSES.forEach(function(p){var o=summary(F.months[0]).op[p.id],cl=summary(nextKey(F.months[F.months.length-1])).op[p.id],fi=0,fo=0;F.months.forEach(function(k){var s=summary(k);fi+=s.fin[p.id];fo+=s.fout[p.id];});
+    P.ensure(20);P.ellipse(L+5,P.y+8,3.4,3.4,p.color,null);P.text(L+14,P.y+11,p.name,'R',10,INK);P.money(RC[0],P.y+11,o,'R',9.5,INK,'r');P.money(RC[1],P.y+11,fi,'R',9.5,INK,'r');P.money(RC[2],P.y+11,fo,'R',9.5,INK,'r');P.money(RC[3],P.y+11,cl,'R',9.5,INK,'r');P.line(L,P.y+17,R,P.y+17,'#D8C9CC',.4,'1 2');P.y+=19;});
+  function cats(list,tot){
+    if(!list.length){P.text(L+2,P.y+11,'None in this period.','I',10,GREY);P.y+=20;return;}
+    list.forEach(function(x){P.ensure(22);var ci=catInfo(x[0]),pc=tot>0?x[1]/tot:0;
+      P.ellipse(L+5,P.y+8,3.4,3.4,ci.color,null);P.text(L+14,P.y+11,pdfFit(x[0],'R',10,205),'R',10,INK);
+      P.rrect(250,P.y+5,190,6,3,'#F1E7E3',null);if(pc>0)P.rrect(250,P.y+5,Math.max(6,190*pc),6,3,ci.color,null);
+      P.text(486,P.y+11,Math.round(pc*100)+'%','I',9,GREY,{align:'r'});P.money(R,P.y+11,x[1],'B',10,INK,'r');P.line(L,P.y+17,R,P.y+17,'#D8C9CC',.4,'1 2');P.y+=20;});
+  }
+  head('Where it wandered');cats(F.ecats,F.exp);
+  head('What arrived');cats(F.icats,F.rec);
+  if(withList){
+    head('Every letter');
+    var lh=function(){thead([[L,'DAY','l'],[88,'LETTER','l'],[362,'PURSE','l'],[R,'SUM','r']]);};lh();
+    var A=F.arr.slice().sort(function(a,b){return a.date.localeCompare(b.date)||(a.ts||0)-(b.ts||0);});
+    if(!A.length){P.text(L+2,P.y+11,'No letters were written in this period.','I',10,GREY);P.y+=20;}
+    A.forEach(function(x){
+      if(P.ensure(32,lh)){}
+      var t=x.type,ttl=x.note||x.cat||typeLabel(t),tag=typeLabel(t).toUpperCase(),extra=(x.cat&&x.note?x.cat:'')+(x.status==='open'?(x.cat&&x.note?' · ':'')+'open':x.status==='done'?(x.cat&&x.note?' · ':'')+'settled':'');
+      P.text(L+2,P.y+11,shortDate(x.date),'R',9.5,INK);
+      P.text(88,P.y+11,pdfFit(ttl,'B',10,262),'B',10,INK);
+      var tw2=P.text(88,P.y+22,tag,'B',6.3,PDF_TAG[t]||GREY,{tc:.9});if(extra)P.text(88+tw2+6,P.y+22,pdfFit(extra,'I',8,262-tw2-6),'I',8,GREY);
+      P.text(362,P.y+11,pdfFit(pName(x.purse)+(t==='transfer'?' to '+pName(x.to):''),'R',9.5,120),'R',9.5,INK);
+      P.money(R,P.y+11,t==='expense'||t==='receivable'?-x.amount:x.amount,'R',9.5,t==='income'?'#3F7A58':INK,'r',{plus:t==='income'});
+      P.line(L,P.y+28,R,P.y+28,'#D8C9CC',.4,'1 2');P.y+=31;});
+  }
+  /* footers */
+  var first=mode==='year'?1:0;P.pages.forEach(function(pg,k){if(k<first)return;pg.push('BT /F3 8 Tf '+pdfRGB(GREY)+' rg 0 Tc '+n2(cx-pdfW('Written with care in the Dancing Letters  ·  '+(k-first+1),'I',8)/2)+' 26 Td (Written with care in the Dancing Letters  ·  '+(k-first+1)+') Tj ET');});
+  return pdfBytes(P);
+}
+async function savePdf(bytes,name){
+  var blob=new Blob([bytes],{type:'application/pdf'});
+  try{var d=window.claude&&window.claude.use?await window.claude.use('downloads'):null;if(d){await d.save({filename:name,data:blob});toast('Your PDF is ready.');return;}}catch(e){if(e&&e.code==='declined')return;}
+  try{var file=new File([blob],name,{type:'application/pdf'});if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:name});return;}}catch(e){if(e&&e.name==='AbortError')return;}
+  try{var u=URL.createObjectURL(blob),an=document.createElement('a');an.href=u;an.download=name;document.body.appendChild(an);an.click();setTimeout(function(){document.body.removeChild(an);URL.revokeObjectURL(u);},2000);toast('Your PDF is ready.');}catch(e){toast('Saving is not available here.');}
+}
+function doPrintReport(){
+  var mode=rpMode,key=mode==='month'?rpKey:rpYear,wl=rpList===null?mode==='month':rpList;
+  try{savePdf(chroniclePdf(mode,key,wl),'dancing-letters-'+(mode==='month'?'month':'year')+'-'+key+'.pdf');}catch(e){toast('The PDF could not be drawn: '+(e&&e.message?e.message:e));}
 }
 boot();
 })();
