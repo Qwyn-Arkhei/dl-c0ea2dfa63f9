@@ -79,7 +79,7 @@ header.top{position:relative;text-align:center;padding:10px 0 6px}
 .chglow{position:absolute;left:50%;top:0;width:520px;height:300px;margin-left:-260px;background:radial-gradient(closest-side,var(--glowc),transparent);animation:flicker 7s infinite;pointer-events:none}
 
 .hbtn{position:absolute;top:44px;z-index:4;min-height:50px;display:flex;align-items:center;gap:8px;border-radius:999px;border:1px solid var(--edge);background:var(--nav);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:var(--wine);font:italic 600 1.12rem var(--display);padding:0 18px 0 14px}
-.hbtn.l{left:0}.hbtn.r{right:0}
+.hbtn.l{left:0}.hbtn.l.m2{left:58px}.hbtn svg.ico{transition:transform .3s}.hbtn.m2:active svg{transform:scale(.86)}.hbtn.r{right:0}
 .hbtn.round{width:50px;padding:0;justify-content:center}
 .script{font-family:var(--script);font-size:3.2rem;line-height:1.1;color:var(--title);text-shadow:var(--titleglow);margin-top:2px}
 h1.sec{font:600 2rem/1.1 var(--display);margin:2px 0 0;color:var(--title);text-shadow:var(--titleglow);text-wrap:balance}
@@ -560,7 +560,9 @@ var ICONS={
  dues:'<rect x="3.4" y="6" width="17.2" height="12" rx="2.4" fill="currentColor" fill-opacity=".12"/><path d="M3.8 6.8L12 13l8.2-6.2"/><circle cx="12" cy="13" r="2.2" fill="currentColor" fill-opacity=".55"/>',
  card:'<rect x="3.4" y="5.6" width="17.2" height="12.8" rx="3" transform="rotate(-4 12 12)" fill="currentColor" fill-opacity=".12"/><path d="M7 14c1.3-2.3 2.8-2.3 3.8-.2s2.5 2.1 3.7-.1 2.4-1.7 3 0" transform="rotate(-4 12 12)"/><path d="M7 9.6h5" transform="rotate(-4 12 12)"/>',
  moon:'<path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" fill="currentColor" fill-opacity=".15"/>',
- sun:'<circle cx="12" cy="12" r="4" fill="currentColor" fill-opacity=".2"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/>',
+ maskOn:'<path d="M2.2 8.4C4.6 6.6 8.2 6.4 12 7.6c3.8-1.2 7.4-1 9.8.8-.1 4.4-2.4 7.4-5.6 7.4-1.7 0-2.9-1.1-4.2-2.3-1.3 1.2-2.5 2.3-4.2 2.3-3.2 0-5.5-3-5.6-7.4z" fill="currentColor" fill-opacity=".88" stroke="#C9A24B" stroke-width="1.2"/><path d="M12 1.9c1.5 1.6 1.6 3.4 0 5.2-1.6-1.8-1.5-3.6 0-5.2z" fill="#C9A24B" stroke="#C9A24B" stroke-width=".4"/><path d="M7.6 5.4c-.9-.9-2-.9-2.8-.2M16.4 5.4c.9-.9 2-.9 2.8-.2" stroke="#C9A24B"/><path d="M5.2 11.2c1.5 1.1 3.4 1.1 4.8 0M14 11.2c1.4 1.1 3.3 1.1 4.8 0" stroke="#FFF6EE" stroke-width="1.3"/><circle cx="12" cy="10" r=".8" fill="#C9A24B" stroke="none"/><path d="M4.6 13.6c1 .8 2.2 1 3.2.8M19.4 13.6c-1 .8-2.2 1-3.2.8" stroke="#C9A24B" stroke-width=".9"/><circle cx="3.6" cy="8.6" r=".75" fill="#C9A24B" stroke="none"/><circle cx="20.4" cy="8.6" r=".75" fill="#C9A24B" stroke="none"/>',
+ maskOff:'<path d="M2.2 8.4C4.6 6.6 8.2 6.4 12 7.6c3.8-1.2 7.4-1 9.8.8-.1 4.4-2.4 7.4-5.6 7.4-1.7 0-2.9-1.1-4.2-2.3-1.3 1.2-2.5 2.3-4.2 2.3-3.2 0-5.5-3-5.6-7.4z" fill="currentColor" fill-opacity=".1"/><path d="M12 1.9c1.5 1.6 1.6 3.4 0 5.2-1.6-1.8-1.5-3.6 0-5.2z" fill="#C9A24B" fill-opacity=".55" stroke="#C9A24B" stroke-width=".6"/><path d="M7.6 5.4c-.9-.9-2-.9-2.8-.2M16.4 5.4c.9-.9 2-.9 2.8-.2" stroke="#C9A24B"/><path d="M4.9 10.6c1.5-1.3 3.6-1.2 5.3.2-1 1.7-3 2.3-4.5 1.5-.7-.4-1-1-.8-1.7z" fill="currentColor" fill-opacity=".22"/><path d="M19.1 10.6c-1.5-1.3-3.6-1.2-5.3.2 1 1.7 3 2.3 4.5 1.5.7-.4 1-1 .8-1.7z" fill="currentColor" fill-opacity=".22"/><circle cx="12" cy="10" r=".8" fill="#C9A24B" stroke="none"/><path d="M4.6 13.6c1 .8 2.2 1 3.2.8M19.4 13.6c-1 .8-2.2 1-3.2.8" stroke="#C9A24B" stroke-width=".9"/><circle cx="3.6" cy="8.6" r=".75" fill="#C9A24B" stroke="none"/><circle cx="20.4" cy="8.6" r=".75" fill="#C9A24B" stroke="none"/>',
+ sun:'<circle cx="12" cy="12" r="4.4" fill="#C9A24B" fill-opacity=".5" stroke="#C9A24B" stroke-width="1.2"/><circle cx="12" cy="12" r="2" fill="currentColor" fill-opacity=".25" stroke="none"/><path d="M12 2.2v3.2M12 18.6v3.2M2.2 12h3.2M18.6 12h3.2"/><path d="M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M5.6 18.4l1.6-1.6M16.8 7.2l1.6-1.6" stroke="#C9A24B" stroke-width="1.4"/>',
  desk:'<path d="M19.6 3.6c-6.6.4-11 4.6-11.8 11L5.4 19.4" fill="currentColor" fill-opacity=".15"/><path d="M19.6 3.6c.6 5.4-3 9.6-9.6 11"/><path d="M8.2 11.4c1.6.7 3.2.9 5 .5M9 14.4h5"/>'
 };
 function ico(n){return '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">'+ICONS[n]+'</svg>';}
@@ -670,8 +672,11 @@ function shortDate(s){var d=pd(s);return d.getDate()+' '+d.toLocaleDateString('e
 function prevKey(k){var a=k.split('-');var x=new Date(+a[0],+a[1]-2,1);return x.getFullYear()+'-'+('0'+(x.getMonth()+1)).slice(-2);}
 function monthName(k){var a=k.split('-');return new Date(+a[0],+a[1]-1,1).toLocaleDateString('en-GB',{month:'long',year:'numeric'});}
 function nf(n){return Math.abs(n).toLocaleString('en-PH',{minimumFractionDigits:2,maximumFractionDigits:2});}
-function money(n,sign){return (n<0?'&minus;':(sign?'+':''))+'<span class="cur">&#8369;</span>'+nf(n);}
-function kfmt(n){return n>=1000?'<span class="cur">&#8369;</span>'+(n/1000).toFixed(n>=100000?0:1).replace('.0','')+'k':'<span class="cur">&#8369;</span>'+Math.round(n);}
+var HIDE=false;try{HIDE=localStorage.getItem('gp_hide')==='1';var _aw=+localStorage.getItem('gp_away')||0;if(_aw&&Date.now()-_aw>=180000){HIDE=true;localStorage.setItem('gp_hide','1');}localStorage.removeItem('gp_away');}catch(x){}
+var DOTS='&bull;&bull;&bull;&bull;&bull;';
+function mnum(n){return HIDE?DOTS:nf(n);}
+function money(n,sign){return (n<0?'&minus;':(sign?'+':''))+'<span class="cur">&#8369;</span>'+mnum(n);}
+function kfmt(n){if(HIDE)return '<span class="cur">&#8369;</span>&bull;&bull;&bull;';return n>=1000?'<span class="cur">&#8369;</span>'+(n/1000).toFixed(n>=100000?0:1).replace('.0','')+'k':'<span class="cur">&#8369;</span>'+Math.round(n);}
 function pById(id){for(var i=0;i<PURSES.length;i++)if(PURSES[i].id===id)return PURSES[i];return {name:'',full:'',line:'',mono:'e-coin',color:'#8F8294'};}
 function pName(id){return pById(id).name;}
 function med(mono,color,sz){var e=/^e-/.test(mono)?mono:'e-coin';return '<span class="bl'+(sz?' '+sz:'')+'" style="--mc:'+color+'"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#'+e+'"/></svg></span>';}
@@ -776,14 +781,15 @@ function lineHTML(e,action){
   var btn='';
   if(action&&open&&t==='receivable')btn='<button class="mark" data-act="settle" data-id="'+e.id+'">Received with thanks</button>';
   if(action&&open&&t==='payable')btn='<button class="mark" data-act="settle" data-id="'+e.id+'">Paid with grace</button>';
-  return '<div class="'+cls+'"><button class="ln" data-act="open" data-id="'+e.id+'"><span class="dcol"><b>'+d.getDate()+'</b><i>'+d.toLocaleDateString('en-GB',{month:'short'})+'</i></span><span class="desc"><b>'+esc(title)+'</b><i>'+meta+'</i></span><span class="amt"><span class="num">'+sg+'<span class="cur">&#8369;</span>'+nf(e.amount)+'</span>'+(stamp?'<span class="stamp">'+stamp+'</span>':'')+'</span></button>'+btn+'</div>';
+  return '<div class="'+cls+'"><button class="ln" data-act="open" data-id="'+e.id+'"><span class="dcol"><b>'+d.getDate()+'</b><i>'+d.toLocaleDateString('en-GB',{month:'short'})+'</i></span><span class="desc"><b>'+esc(title)+'</b><i>'+meta+'</i></span><span class="amt"><span class="num">'+sg+'<span class="cur">&#8369;</span>'+mnum(e.amount)+'</span>'+(stamp?'<span class="stamp">'+stamp+'</span>':'')+'</span></button>'+btn+'</div>';
 }
 function emptyHTML(msg,btn,ttl,sub){return gownCard(ttl,sub,msg,btn);}
 function page(inner,cls){return '<section class="page '+(cls||'')+'">'+inner+'</section>';}
 
 /* views */
-function hideF(){try{return localStorage.getItem('gp_hide')==='1';}catch(x){return false;}}
-function eyeBtn(hid){return '<button class="eye" data-act="toggleFortune" aria-label="'+(hid?'Show the fortune':'Hide the fortune')+'" aria-pressed="'+(hid?'true':'false')+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">'+(hid?'<path d="M2.5 12s3.6-6.5 9.5-6.5S21.5 12 21.5 12 17.9 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/><path d="M4 4l16 16"/>':'<path d="M2.5 12s3.6-6.5 9.5-6.5S21.5 12 21.5 12 17.9 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>')+'</svg></button>';}
+function hideF(){return HIDE;}
+function maskIco(hid){return '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICONS[hid?'maskOn':'maskOff']+'</svg>';}
+function eyeBtn(hid){return '<button class="eye" data-act="toggleFortune" aria-label="'+(hid?'Show every sum':'Veil every sum')+'" aria-pressed="'+(hid?'true':'false')+'">'+maskIco(hid)+'</button>';}
 function towerState(mk){var ms=monthStats(mk),av=Math.max(0,ms.start)+ms.inc,fr=av>0?Math.max(0,1-ms.exp/av):(ms.exp>0?0:1);var keep=fr>=1?10:(fr<=0?0:Math.max(1,Math.round(fr*10)));return {keep:keep,pc:Math.round(fr*100),av:av,sp:ms.exp};}
 function vHome(){
   var t=today(),mk=t.slice(0,7),sm=summary(mk),total=0,pos=0;
@@ -797,7 +803,7 @@ function vHome(){
   var carry=PURSES.reduce(function(s2,p){return s2+(sm.op[p.id]||0);},0);
   var fl2=PURSES.map(function(p){var v=sm.b[p.id];return {p:p,v:v,pc:pos>0&&v>0?Math.round(v/pos*100):0};});
   var crn='<svg class="fc" viewBox="0 0 30 30" aria-hidden="true"><path d="M2 28C2 12 12 2 28 2" fill="none" stroke="#C9A85E" stroke-width="1.2"/><path d="M2 20C2 10 10 2 20 2" fill="none" stroke="#C9A85E" stroke-width=".8" stroke-opacity=".7"/><circle cx="6" cy="6" r="1.8" fill="#C9A85E"/><path d="M11 6.2h.01M6.2 11h.01" stroke="#C9A85E" stroke-width="2" stroke-linecap="round"/></svg>';
-  h+='<section class="page fortune"><i class="c1">'+crn+'</i><i class="c2">'+crn+'</i><i class="c3">'+crn+'</i><i class="c4">'+crn+'</i><div class="fglow"></div>'+macTower(tw.keep)+'<div class="fcap">Fortune in hand'+eyeBtn(hid)+'</div><div class="fdiv" aria-hidden="true"><i></i><svg viewBox="0 0 24 24"><use href="#bloom"/></svg><i></i></div><div class="num total'+(total<0?' neg':'')+(hid?' hid':'')+'">'+(hid?'<span class="cur">&#8369;</span>&bull;&bull;&bull;&bull;&bull;&bull;':money(total))+'</div><div class="pg-sub">across four purses, as of '+shortDate(t)+'</div>'+(carry&&!hid?'<div class="pg-sub carry">'+money(carry)+' carried in from '+monthName(prevKey(mk)).split(' ')[0]+'</div>':'')+'<div class="pg-sub carry">'+(tw.sp<=0?'The tower stands whole this month.':tw.keep===0?'The tower is bare. This month’s coin has all been spent.':tw.pc+'% of this month’s coin remains.')+'</div>';
+  h+='<section class="page fortune"><i class="c1">'+crn+'</i><i class="c2">'+crn+'</i><i class="c3">'+crn+'</i><i class="c4">'+crn+'</i><div class="fglow"></div>'+macTower(tw.keep)+'<div class="fcap">Fortune in hand</div><div class="fdiv" aria-hidden="true"><i></i><svg viewBox="0 0 24 24"><use href="#bloom"/></svg><i></i></div><div class="num total'+(total<0?' neg':'')+(hid?' hid':'')+'">'+(hid?'<span class="cur">&#8369;</span>&bull;&bull;&bull;&bull;&bull;&bull;':money(total))+'</div><div class="pg-sub">across four purses, as of '+shortDate(t)+'</div>'+(carry&&!hid?'<div class="pg-sub carry">'+money(carry)+' carried in from '+monthName(prevKey(mk)).split(' ')[0]+'</div>':'')+'<div class="pg-sub carry">'+(tw.sp<=0?'The tower stands whole this month.':tw.keep===0?'The tower is bare. This month’s coin has all been spent.':tw.pc+'% of this month’s coin remains.')+'</div>';
   h+='<div class="ribbon" aria-hidden="true">'+PURSES.map(function(p){var v=sm.b[p.id];return v>0&&pos>0?'<i style="background:'+p.color+';width:'+(v/pos*100)+'%"></i>':'';}).join('')+'</div>';
   h+='<div class="fleg">'+fl2.map(function(x){return '<span>'+med(x.p.mono,x.p.color,'xs')+'<b>'+x.pc+'%</b></span>';}).join('')+'</div></section>';
   h+='<section class="page"><div class="cap" style="margin:0">The account of the purses <span style="letter-spacing:.08em;text-transform:none;font-style:italic">· '+monthName(mk)+'</span></div>';
@@ -921,7 +927,8 @@ function vBook(){
     ['A sum arrives','Money coming in: salary, commissions, gifts and blessing coins. The purse grows heavier.'],
     ['A sum departs','Money going out. The purse grows lighter.'],
     ['Carried across','Money moved from one purse to another. Your fortune is unchanged; only its lodging moves.'],
-    ['Fortune in hand','The sum of every purse together, shown on the Ballroom beside a tower of macarons. Touch the little eye beside its title to hide the sum from curious glances, and again to see it.'],
+    ['The masquerade mask','The little mask beside the sun or moon at the top of every page. Touch it and every sum in the app is veiled behind small dots, so you may open your letters in company without a worry. A closed, gilded mask means sums are hidden; an open mask means they show. Your backups and printed chronicle always carry the true figures.'],
+    ['Fortune in hand','The sum of every purse together, shown on the Ballroom beside a tower of macarons. To veil it from curious glances, touch the mask at the top of the page.'],
     ['The macaron tower','Full at the start of each month. Every coin you spend takes macarons away, measured against the coin carried in plus the coin that arrives. It begins again on the first of the month.'],
     ['Lent Letters','Money you lent to someone. It leaves your purse when you write it, and returns when you mark it received.'],
     ['Debts of Honour','Money you owe. Your purse is untouched until you mark it paid, and only then does the coin depart.'],
@@ -1138,7 +1145,7 @@ function vTrail(){
     d+='C'+c1x.toFixed(1)+' '+c1y.toFixed(1)+' '+c2x.toFixed(1)+' '+c2y.toFixed(1)+' '+p2[0].toFixed(1)+' '+p2[1].toFixed(1);}
   var base=Y(Math.max(mn,0)),area=d+'L'+xy[xy.length-1][0].toFixed(1)+' '+base.toFixed(1)+'L'+xy[0][0].toFixed(1)+' '+base.toFixed(1)+'Z';
   var grid='',gv=[mn<0?mn:0,(mn+mx)/2,mx].map(function(v){return Math.round(v);});
-  gv.forEach(function(v){grid+='<path d="M'+pl+' '+Y(v).toFixed(1)+'H'+(W-pr)+'" style="stroke:var(--line)" stroke-dasharray="2 4" fill="none"/><text x="'+(pl-6)+'" y="'+(Y(v)+3).toFixed(1)+'" text-anchor="end" style="fill:var(--ink2)" font-size="9" font-family="Cormorant Garamond,serif">'+(Math.abs(v)>=1000?(v/1000).toFixed(Math.abs(v)>=100000?0:1)+'k':v)+'</text>';});
+  gv.forEach(function(v){grid+='<path d="M'+pl+' '+Y(v).toFixed(1)+'H'+(W-pr)+'" style="stroke:var(--line)" stroke-dasharray="2 4" fill="none"/><text x="'+(pl-6)+'" y="'+(Y(v)+3).toFixed(1)+'" text-anchor="end" style="fill:var(--ink2)" font-size="9" font-family="Cormorant Garamond,serif">'+(HIDE?'':Math.abs(v)>=1000?(v/1000).toFixed(Math.abs(v)>=100000?0:1)+'k':v)+'</text>';});
   if(mn<0)grid+='<path d="M'+pl+' '+Y(0).toFixed(1)+'H'+(W-pr)+'" style="stroke:var(--neg)" stroke-opacity=".4" fill="none"/>';
   var dots='',lab='',step=pts.length>8?2:1;
   xy.forEach(function(q,i){var last=i===xy.length-1;dots+='<circle cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+'" r="'+(last?5:3.2)+'" style="fill:'+(last?'var(--rose)':'var(--surface)')+';stroke:var(--gold)" stroke-width="1.6"/>';
@@ -1166,7 +1173,7 @@ function curTheme(){var a=document.documentElement.getAttribute('data-theme');if
 function render(){
   if(!loaded)return;
   var hd=$('#hdr'),m=$('#main'),dark=curTheme()==='dark';
-  var tb='<button class="hbtn l round" data-act="theme" aria-label="'+(dark?'Switch to the daylit ballroom':'Switch to the midnight ball')+'">'+ico(dark?'moon':'sun')+'</button>';
+  var tb='<button class="hbtn l round" data-act="theme" aria-label="'+(dark?'Switch to the daylit ballroom':'Switch to the midnight ball')+'">'+ico(dark?'moon':'sun')+'</button><button class="hbtn l round m2" data-act="toggleFortune" aria-label="'+(HIDE?'Show every sum':'Veil every sum')+'" aria-pressed="'+(HIDE?'true':'false')+'">'+maskIco(HIDE)+'</button>';
   var deskB=view==='desk'?'':'<button class="hbtn r" data-act="go" data-v="desk">'+ico('desk')+'Desk</button>';
   var base='<div class="chglow"></div>'+pearls()+tb+deskB;
   if(view==='home'){var hr=new Date().getHours();hd.className='top';hd.innerHTML=base+'<div class="script">The Dancing Letters</div><p class="sub">'+(hr<12?'Good morning':hr<18?'Good afternoon':'Good evening')+', dear heart.</p><div class="datecap">'+longDate(today())+'</div>';}
@@ -1448,7 +1455,7 @@ function clickMain(ev){
   else if(a==='editEntry'){var f2=findEntry(id);if(!f2)return;if(f2.e.type==='card')chargeSheet(f2.e);else entrySheet(f2.e);}
   else if(a==='settle')settleSheet(id);
   else if(a==='doSettle'){var f3=findEntry(id);if(!f3)return;var n=Object.assign({},f3.e,{status:'done',settlePurse:gv('purse'),settleDate:fv('f-date')||today()});replaceEntry(id,n);closeSheet();toast(n.type==='receivable'?'Returned to you, with a curtsy.':'Settled, and not a whisper of scandal.');burst();render();}
-  else if(a==='unsettle'){var f4=findEntry(id);if(!f4)return;var n2=Object.assign({},f4.e,{status:'open'});delete n2.settlePurse;delete n2.settleDate;replaceEntry(id,n2);closeSheet();toast('Returned to the open page.');render();}
+  else if(a==='unsettle'){var f4=findEntry(id);if(!f4)return;var nu=Object.assign({},f4.e,{status:'open'});delete nu.settlePurse;delete nu.settleDate;replaceEntry(id,nu);closeSheet();toast('Returned to the open page.');render();}
   else if(a==='del'){if(!arm(el,id))return;removeEntry(id);removeEntry('cp-'+id);closeSheet();toast('Removed from the ledger.');render();}
   else if(a==='mprev'){lm=addMonths(lm+'-01',-1,1).slice(0,7);render();}
   else if(a==='mnext'){lm=addMonths(lm+'-01',1,1).slice(0,7);render();}
@@ -1513,14 +1520,14 @@ function clickMain(ev){
   else if(a==='rpList'){var cw=rpList===null?rpMode==='month':rpList;rpList=!cw;render();}
   else if(a==='rpPrev'||a==='rpNext'){var dr=a==='rpPrev'?-1:1;if(rpMode==='month')rpKey=addMonths((rpKey||today().slice(0,7))+'-01',dr,1).slice(0,7);else rpYear=String(+(rpYear||today().slice(0,4))+dr);render();}
   else if(a==='printReport')doPrintReport();
-  else if(a==='toggleFortune'){try{localStorage.setItem('gp_hide',hideF()?'0':'1');}catch(x){}render();}
+  else if(a==='toggleFortune'){HIDE=!HIDE;try{localStorage.setItem('gp_hide',HIDE?'1':'0');}catch(x){}render();}
   else if(a==='newPlan')planSheet();
   else if(a==='planAhead')planSheet(null,true);
   else if(a==='editPlan')planSheet(id);
   else if(a==='planItem')planDetail(id);
   else if(a==='pprev'){pm=addMonths(curPm()+'-01',-1,1).slice(0,7);render();}
   else if(a==='pnext'){pm=addMonths(curPm()+'-01',1,1).slice(0,7);render();}
-  else if(a==='savePlan'){var pn=fv('f-pname').trim(),pa=tryCalc(fv('f-pamt')),pd=gv('pdir')||'out';var pwv=pd==='out'?gv('pwish'):'',pwo=pwv?S.config.wishes.filter(function(w){return w.id===pwv;})[0]:null;if(!pn&&pwo)pn=pwo.name;if(!pn){toast('Please name it.');return;}if(!pa||pa<=0){toast('Please give a sum.');return;}var pdt=fv('f-pdate'),pc=pd==='in'?gv('pcin'):(pwo?'':gv('pcout')),L=S.config.plan.items,x1=id?L.filter(function(y){return y.id===id;})[0]:null;if(x1){x1.dir=pd;x1.wish=pwo?pwo.id:'';x1.name=pn;x1.amount=pa;x1.date=pdt;x1.cat=pc;}else L.push({id:rid('p'),mk:(pdt?pdt.slice(0,7):(fv('f-pmon')||curPm())),dir:pd,wish:pwo?pwo.id:'',name:pn,amount:pa,date:pdt,cat:pc,done:false});persist([],true);closeSheet();toast('The plan is updated.');render();}
+  else if(a==='savePlan'){var pn=fv('f-pname').trim(),pa=tryCalc(fv('f-pamt')),pdr=gv('pdir')||'out';var pwv=pdr==='out'?gv('pwish'):'',pwo=pwv?S.config.wishes.filter(function(w){return w.id===pwv;})[0]:null;if(!pn&&pwo)pn=pwo.name;if(!pn){toast('Please name it.');return;}if(!pa||pa<=0){toast('Please give a sum.');return;}var pdt=fv('f-pdate'),pc=pdr==='in'?gv('pcin'):(pwo?'':gv('pcout')),L=S.config.plan.items,x1=id?L.filter(function(y){return y.id===id;})[0]:null;if(x1){x1.dir=pdr;x1.wish=pwo?pwo.id:'';x1.name=pn;x1.amount=pa;x1.date=pdt;x1.cat=pc;}else L.push({id:rid('p'),mk:(pdt?pdt.slice(0,7):(fv('f-pmon')||curPm())),dir:pdr,wish:pwo?pwo.id:'',name:pn,amount:pa,date:pdt,cat:pc,done:false});persist([],true);closeSheet();toast('The plan is updated.');render();}
   else if(a==='delPlan'){if(!arm(el,id))return;undoSnap=clone(S.config.plan.items);S.config.plan.items=S.config.plan.items.filter(function(y){return y.id!==id;});persist([],true);closeSheet();toastUndo('Released from the plan.');render();}
   else if(a==='tickPlan'){var x2=S.config.plan.items.filter(function(y){return y.id===id;})[0];if(x2){x2.done=!x2.done;var wq=wishOf(x2);if(wq){wq.saved=Math.max(0,(wq.saved||0)+(x2.done?1:-1)*(+x2.amount||0));if(x2.done&&wq.saved>=wq.goal){toast('Your wish is granted!');burst();}else toast(x2.done?'Tucked into the chest, with love.':'Coin returned to you.');}persist([],true);}closeSheet();render();}
   else if(a==='writePlan'){var x3=S.config.plan.items.filter(function(y){return y.id===id;})[0];if(!x3)return;closeSheet();setTimeout(function(){window.__planLink=id;entrySheet(null,{type:x3.dir==='in'?'income':'expense',amount:x3.amount,note:x3.name,cat:x3.cat,date:x3.date||today()});},420);}
@@ -1528,7 +1535,12 @@ function clickMain(ev){
   else if(a==='doRestore')doRestore();
 }
 document.addEventListener('input',function(ev){var t=ev.target,sel=t&&t.dataset&&t.dataset.filter;if(!sel)return;var q=t.value.trim().toLowerCase();document.querySelectorAll('#main '+sel).forEach(function(el){el.style.display=(q&&el.textContent.toLowerCase().indexOf(q)<0)?'none':'';});document.querySelectorAll('#main .bsec').forEach(function(s){var any=false;s.querySelectorAll('.bookitem').forEach(function(i){if(i.style.display!=='none')any=true;});s.parentElement.style.display=any?'':'none';});});
-document.addEventListener('visibilitychange',function(){if(document.hidden){lastHidden=Date.now();}else{if(lockOn()&&lastHidden&&Date.now()-lastHidden>60000)showLock();if(autoRan)processAuto();}});
+function stampAway(){try{localStorage.setItem('gp_away',String(Date.now()));}catch(x){}}
+function veilIfAway(){var t=0;try{t=+localStorage.getItem('gp_away')||0;localStorage.removeItem('gp_away');}catch(x){}
+  if(t&&Date.now()-t>=180000&&!HIDE){HIDE=true;try{localStorage.setItem('gp_hide','1');}catch(x){}if(typeof render==='function')render();}}
+document.addEventListener('visibilitychange',function(){if(document.hidden){lastHidden=Date.now();stampAway();}else{veilIfAway();if(lockOn()&&lastHidden&&Date.now()-lastHidden>60000)showLock();if(autoRan)processAuto();}});
+window.addEventListener('pagehide',stampAway);
+window.addEventListener('pageshow',function(){veilIfAway();});
 
 /* atmosphere */
 (function(){
@@ -1637,7 +1649,7 @@ function rpLetters(arr){
   var L=arr.slice().sort(function(a,b){return a.date.localeCompare(b.date)||(a.ts||0)-(b.ts||0);});
   if(!L.length)return '<p class="rp-n">No letters were written in this period.</p>';
   return rpTable(['Day','Letter','Purse','Sum'],L.map(function(x){var t=x.type,sg=t==='income'?'+':(t==='expense'||t==='receivable')?'&minus;':'',ttl=x.note||x.cat||typeLabel(t),sub=(x.cat&&x.note?esc(x.cat):'')+(x.status==='open'?(x.cat&&x.note?' · ':'')+'open':x.status==='done'?(x.cat&&x.note?' · ':'')+'settled':'');
-    return '<tr><td class="nw">'+shortDate(x.date)+'</td><td><b>'+esc(ttl)+'</b><br><span class="rp-tag tg-'+t+'">'+esc(typeLabel(t))+'</span><small>'+sub+'</small></td><td>'+esc(pName(x.purse))+(t==='transfer'?' to '+esc(pName(x.to)):'')+'</td><td class="r nw">'+sg+'<span class="cur">&#8369;</span>'+nf(x.amount)+'</td></tr>';}));
+    return '<tr><td class="nw">'+shortDate(x.date)+'</td><td><b>'+esc(ttl)+'</b><br><span class="rp-tag tg-'+t+'">'+esc(typeLabel(t))+'</span><small>'+sub+'</small></td><td>'+esc(pName(x.purse))+(t==='transfer'?' to '+esc(pName(x.to)):'')+'</td><td class="r nw">'+sg+'<span class="cur">&#8369;</span>'+mnum(x.amount)+'</td></tr>';}));
 }
 function rpFigures(mode,key){
   var months=mode==='month'?[key]:[1,2,3,4,5,6,7,8,9,10,11,12].map(function(m){return key+'-'+('0'+m).slice(-2);});
